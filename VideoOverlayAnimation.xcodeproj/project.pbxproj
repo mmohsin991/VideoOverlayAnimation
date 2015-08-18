@@ -13,6 +13,7 @@
 		42165CDD1B834D69004873D9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42165CDC1B834D69004873D9 /* Images.xcassets */; };
 		42165CE01B834D69004873D9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42165CDE1B834D69004873D9 /* LaunchScreen.xib */; };
 		42165CEC1B834D69004873D9 /* VideoOverlayAnimationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42165CEB1B834D69004873D9 /* VideoOverlayAnimationTests.swift */; };
+		42165CF61B835622004873D9 /* sample.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 42165CF51B8355F7004873D9 /* sample.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		42165CE51B834D69004873D9 /* VideoOverlayAnimationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoOverlayAnimationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42165CEA1B834D69004873D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42165CEB1B834D69004873D9 /* VideoOverlayAnimationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoOverlayAnimationTests.swift; sourceTree = "<group>"; };
+		42165CF51B8355F7004873D9 /* sample.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		42165CD21B834D69004873D9 /* VideoOverlayAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				42165CF51B8355F7004873D9 /* sample.mp4 */,
 				42165CD51B834D69004873D9 /* AppDelegate.swift */,
 				42165CD71B834D69004873D9 /* ViewController.swift */,
 				42165CD91B834D69004873D9 /* Main.storyboard */,
@@ -192,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42165CF61B835622004873D9 /* sample.mp4 in Resources */,
 				42165CDB1B834D69004873D9 /* Main.storyboard in Resources */,
 				42165CE01B834D69004873D9 /* LaunchScreen.xib in Resources */,
 				42165CDD1B834D69004873D9 /* Images.xcassets in Resources */,
@@ -341,6 +345,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = VideoOverlayAnimation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -351,6 +356,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = VideoOverlayAnimation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -409,6 +415,7 @@
 				42165CF11B834D69004873D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		42165CF21B834D69004873D9 /* Build configuration list for PBXNativeTarget "VideoOverlayAnimationTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +424,7 @@
 				42165CF41B834D69004873D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

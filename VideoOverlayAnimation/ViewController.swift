@@ -7,9 +7,17 @@
 //
 
 import UIKit
+import AVFoundation
+import MobileCoreServices
+import AVKit
+import MediaPlayer
+
 
 class ViewController: UIViewController {
 
+    var player:MPMoviePlayerViewController!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,5 +29,29 @@ class ViewController: UIViewController {
     }
 
 
+    
+    // run the avplayer for any video or audio
+    func playAVPlayer(url: NSURL){
+        let av = AVPlayerViewController()
+        av.player =  AVPlayer(URL: url)
+        self.presentViewController(av, animated: true, completion: nil)
+    }
+    
+    func playVideo(videoURL: NSURL){
+        
+        player = MPMoviePlayerViewController(contentURL: videoURL)
+        
+        self.presentMoviePlayerViewControllerAnimated(player)
+    }
+    
+    
+    
+    @IBAction func play(sender: AnyObject) {
+       let videoUrl = NSBundle.mainBundle().URLForResource("sample", withExtension: ".mp4")
+        
+        playVideo(videoUrl!)
+    }
+    
+    
 }
 
