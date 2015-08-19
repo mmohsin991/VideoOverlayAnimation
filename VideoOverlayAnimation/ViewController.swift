@@ -26,7 +26,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,29 +42,7 @@ class ViewController: UIViewController {
         
     }
     
-    
-    
-    func videoOutput(){
-        
-        // 2 - Create AVMutableComposition object. This object will hold your AVMutableCompositionTrack instances.
-        let mixComposition = AVMutableComposition()
-        
-        // 3 - Video track
 
-        let videoTrack = mixComposition.addMutableTrackWithMediaType(AVMediaTypeVideo, preferredTrackID: CMPersistentTrackID())
-
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     // run the avplayer for any video or audio
     func playAVPlayer(url: NSURL){
@@ -77,7 +54,7 @@ class ViewController: UIViewController {
     func playVideo(videoURL: NSURL){
         
         player = MPMoviePlayerViewController(contentURL: videoURL)
-        
+        //player.moviePlayer.prepareToPlay()
         self.presentMoviePlayerViewControllerAnimated(player)
     }
     
@@ -86,14 +63,18 @@ class ViewController: UIViewController {
     @IBAction func play(sender: AnyObject) {
         
         let videoUrl = NSBundle.mainBundle().URLForResource("sample", withExtension: ".mp4")
-
         let audioUrl = NSBundle.mainBundle().URLForResource("sampleAudio", withExtension: ".mp3")
 
-        VideoOverlay.mergeAudiVideoAndAnimation(audioUrl: audioUrl!, videoUrl: videoUrl!, outputVideName: "animatedVideo", maximumVideoDuration: 20, musicMixLevel: 0.0, audioMixLevel: 0.0) { (outputUrl, errorDesc) -> Void in
+        
+//        self.playVideo(audioUrl!)
+
+        
+        VideoOverlay.mergeAudiVideoAndAnimation(audioUrl: audioUrl!, videoUrl: videoUrl!, outputVideName: "animatedVideo", maximumVideoDuration: 20, musicMixLevel: 0.5, audioMixLevel: 1.0) { (outputUrl, errorDesc) -> Void in
             if outputUrl != nil{
                 self.playVideo(outputUrl!)
             }
         }
+        
     }
     
     

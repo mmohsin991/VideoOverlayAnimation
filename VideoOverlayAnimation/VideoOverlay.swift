@@ -307,14 +307,28 @@ class SetVideoOrientationAndAnimation {
     
     
     
-    private class func applyVideoEffectsToComposition(composition:AVMutableVideoComposition,var size:CGSize,image:UIImage){
+    private class func applyVideoEffectsToComposition(composition:AVMutableVideoComposition, size:CGSize, image:UIImage){
+        
+       // applyVideoborder(composition, size: size, image: image)
+        
+       // applyVideoOverlayImage(composition, size: size, image: image)
+        
+        applyVideoOverlayAnimation(composition, size: size, image: image)
+
+        
+    }
+    
+    
+    
+    // apply video border
+    
+    private class func applyVideoborder(composition:AVMutableVideoComposition, size:CGSize, image:UIImage){
         
         var borderImage = imageWithColor(UIColor.blueColor(), size)
         
-        
         var backgroundLayer = CALayer()
         //        backgroundLayer.contents = [borderImage.CGImage]
-        backgroundLayer.backgroundColor = UIColor.blueColor().CGColor
+        backgroundLayer.backgroundColor = UIColor.redColor().CGColor
         backgroundLayer.frame = CGRectMake(0, 0, size.width, size.height)
         backgroundLayer.masksToBounds = true
         
@@ -333,6 +347,82 @@ class SetVideoOrientationAndAnimation {
         composition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, inLayer: parentLayer)
         
     }
+    
+    
+    // apply video overlay Image
+
+    private class func applyVideoOverlayImage(composition:AVMutableVideoComposition, size:CGSize, image:UIImage){
+        
+        
+        var overlayLayer = CALayer()
+        var overlayImage = UIImage(named: "Record.png")
+        overlayLayer.contents = overlayImage!.CGImage
+        overlayLayer.frame = CGRect(origin: CGPoint(x: size.width/2, y: size.height/2), size: CGSize(width: 100, height: 100) )
+        overlayLayer.masksToBounds = true
+        
+        
+        var videoLayer = CALayer()
+        videoLayer.frame = CGRectMake(20, 20, size.width-40, size.height-40)
+        videoLayer.masksToBounds = true
+        
+        
+        var parentLayer = CALayer()
+        parentLayer.frame = CGRectMake(0, 0, size.width, size.height)
+        parentLayer.addSublayer(videoLayer)
+        parentLayer.addSublayer(overlayLayer)
+
+        
+        composition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, inLayer: parentLayer)
+        
+    }
+    
+    
+    // apply video overlay Animation
+    
+    private class func applyVideoOverlayAnimation(composition:AVMutableVideoComposition, size:CGSize, image:UIImage){
+        
+        var overlayImage = UIImage(named: "Record.png")
+        var overlayLayer = CALayer()
+        overlayLayer.contents = overlayImage!.CGImage
+        overlayLayer.frame = CGRect(origin: CGPoint(x: size.width/2, y: size.height/2), size: CGSize(width: 100, height: 100) )
+        overlayLayer.masksToBounds = true
+        
+        
+        // animation
+        let basicAnimation = CABasicAnimation(keyPath: "transform.scale")
+        basicAnimation.duration = 1
+        basicAnimation.repeatCount = 100
+        basicAnimation.autoreverses = true
+        basicAnimation.toValue = 0.5
+        basicAnimation.fromValue = 1.0
+        basicAnimation.beginTime = AVCoreAnimationBeginTimeAtZero;
+        overlayLayer.addAnimation(basicAnimation, forKey: "scale")
+
+        
+        
+        var videoLayer = CALayer()
+        videoLayer.frame = CGRectMake(20, 20, size.width-40, size.height-40)
+        videoLayer.masksToBounds = true
+        
+        
+        var parentLayer = CALayer()
+        parentLayer.frame = CGRectMake(0, 0, size.width, size.height)
+        parentLayer.addSublayer(videoLayer)
+        parentLayer.addSublayer(overlayLayer)
+        
+        
+        composition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, inLayer: parentLayer)
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
