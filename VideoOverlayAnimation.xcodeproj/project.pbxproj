@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		421229C91B849C6600A5EC3E /* fairy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 421229C81B849C6600A5EC3E /* fairy.gif */; };
+		421229CB1B84B31100A5EC3E /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421229CA1B84B31100A5EC3E /* Functions.swift */; };
+		421229CD1B84CA8600A5EC3E /* VideoOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421229CC1B84CA8600A5EC3E /* VideoOverlay.swift */; };
+		421229CF1B84CBCC00A5EC3E /* sampleAudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 421229CE1B84CBCC00A5EC3E /* sampleAudio.mp3 */; };
 		42165CD61B834D69004873D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42165CD51B834D69004873D9 /* AppDelegate.swift */; };
 		42165CD81B834D69004873D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42165CD71B834D69004873D9 /* ViewController.swift */; };
 		42165CDB1B834D69004873D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42165CD91B834D69004873D9 /* Main.storyboard */; };
@@ -14,6 +18,7 @@
 		42165CE01B834D69004873D9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42165CDE1B834D69004873D9 /* LaunchScreen.xib */; };
 		42165CEC1B834D69004873D9 /* VideoOverlayAnimationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42165CEB1B834D69004873D9 /* VideoOverlayAnimationTests.swift */; };
 		42165CF61B835622004873D9 /* sample.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 42165CF51B8355F7004873D9 /* sample.mp4 */; };
+		42165CF81B835BE1004873D9 /* AudioVideoMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42165CF71B835BE1004873D9 /* AudioVideoMerge.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		421229C81B849C6600A5EC3E /* fairy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fairy.gif; sourceTree = "<group>"; };
+		421229CA1B84B31100A5EC3E /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		421229CC1B84CA8600A5EC3E /* VideoOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoOverlay.swift; sourceTree = "<group>"; };
+		421229CE1B84CBCC00A5EC3E /* sampleAudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sampleAudio.mp3; sourceTree = "<group>"; };
 		42165CD01B834D69004873D9 /* VideoOverlayAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoOverlayAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42165CD41B834D69004873D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42165CD51B834D69004873D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +47,7 @@
 		42165CEA1B834D69004873D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42165CEB1B834D69004873D9 /* VideoOverlayAnimationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoOverlayAnimationTests.swift; sourceTree = "<group>"; };
 		42165CF51B8355F7004873D9 /* sample.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.mp4; sourceTree = "<group>"; };
+		42165CF71B835BE1004873D9 /* AudioVideoMerge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioVideoMerge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +89,13 @@
 		42165CD21B834D69004873D9 /* VideoOverlayAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				421229CE1B84CBCC00A5EC3E /* sampleAudio.mp3 */,
+				421229C81B849C6600A5EC3E /* fairy.gif */,
+				42165CF71B835BE1004873D9 /* AudioVideoMerge.swift */,
+				421229CC1B84CA8600A5EC3E /* VideoOverlay.swift */,
 				42165CF51B8355F7004873D9 /* sample.mp4 */,
 				42165CD51B834D69004873D9 /* AppDelegate.swift */,
+				421229CA1B84B31100A5EC3E /* Functions.swift */,
 				42165CD71B834D69004873D9 /* ViewController.swift */,
 				42165CD91B834D69004873D9 /* Main.storyboard */,
 				42165CDC1B834D69004873D9 /* Images.xcassets */,
@@ -196,9 +211,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				42165CF61B835622004873D9 /* sample.mp4 in Resources */,
+				421229C91B849C6600A5EC3E /* fairy.gif in Resources */,
 				42165CDB1B834D69004873D9 /* Main.storyboard in Resources */,
 				42165CE01B834D69004873D9 /* LaunchScreen.xib in Resources */,
 				42165CDD1B834D69004873D9 /* Images.xcassets in Resources */,
+				421229CF1B84CBCC00A5EC3E /* sampleAudio.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +235,9 @@
 			files = (
 				42165CD81B834D69004873D9 /* ViewController.swift in Sources */,
 				42165CD61B834D69004873D9 /* AppDelegate.swift in Sources */,
+				42165CF81B835BE1004873D9 /* AudioVideoMerge.swift in Sources */,
+				421229CD1B84CA8600A5EC3E /* VideoOverlay.swift in Sources */,
+				421229CB1B84B31100A5EC3E /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,8 +364,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = VideoOverlayAnimation/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -355,8 +376,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = VideoOverlayAnimation/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
