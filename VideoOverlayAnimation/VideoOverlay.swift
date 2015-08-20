@@ -383,25 +383,28 @@ class SetVideoOrientationAndAnimation {
         
         var overlayImage = UIImage(named: "Record.png")
         var overlayLayer = CALayer()
-        overlayLayer.contents = overlayImage!.CGImage
-        overlayLayer.frame = CGRect(origin: CGPoint(x: size.width/2, y: size.height/2), size: CGSize(width: 100, height: 100) )
-        overlayLayer.masksToBounds = true
+//        overlayLayer.contents = overlayImage!.CGImage
+        overlayLayer.frame = CGRect(origin: CGPointZero , size: size )
+//        overlayLayer.masksToBounds = true
         
         
-        // animation
-        let basicAnimation = CABasicAnimation(keyPath: "transform.scale")
-        basicAnimation.duration = 1
-        basicAnimation.repeatCount = 100
-        basicAnimation.autoreverses = true
-        basicAnimation.toValue = 0.5
-        basicAnimation.fromValue = 1.0
-        basicAnimation.beginTime = AVCoreAnimationBeginTimeAtZero;
-        overlayLayer.addAnimation(basicAnimation, forKey: "scale")
+//        // animation
+//        let basicAnimation = CABasicAnimation(keyPath: "transform.scale")
+//        basicAnimation.duration = 1
+//        basicAnimation.repeatCount = 100
+//        basicAnimation.autoreverses = true
+//        basicAnimation.toValue = 0.5
+//        basicAnimation.fromValue = 1.0
+//        basicAnimation.beginTime = AVCoreAnimationBeginTimeAtZero;
+//        overlayLayer.addAnimation(basicAnimation, forKey: "scale")
+
+        TFFairyDust.fairyDust(overlayLayer)
 
         
+
         
         var videoLayer = CALayer()
-        videoLayer.frame = CGRectMake(20, 20, size.width-40, size.height-40)
+        videoLayer.frame = CGRectMake(0, 0, size.width, size.height)
         videoLayer.masksToBounds = true
         
         
