@@ -25,14 +25,9 @@ class FairyAnimationVC: UIViewController {
         
         
             
-       //TFFairyDust.fairyDust(self.view.layer)
+       TFFairyDust.fairyDust(self.view.layer)        
+        
 
-        let fairy = Fairy.fairy()
-        
-        
-        
-        self.view.layer.addSublayer(fairy)
-        
     
     }
 

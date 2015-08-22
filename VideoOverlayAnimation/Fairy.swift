@@ -36,7 +36,7 @@ class FairyLayer: CALayer {
 
 class Fairy {
     
-    class func fairy() -> CALayer{
+    class func fairy(size: CGSize) -> CALayer{
         
         var parentLayer = CALayer()
         var rightWing = CALayer()
@@ -50,9 +50,7 @@ class Fairy {
         rightWing.contents = fairyWingImg?.CGImage
         fairyBody.contents = fairyBodyImg?.CGImage
         
-        let size = CGSize(width: 100, height: 100)
-        
-        parentLayer.frame = CGRect(origin: CGPointZero, size: size)
+        parentLayer.frame = CGRect(origin: CGPoint(x: -size.height/2, y: -size.height/2.6), size: size)
         rightWing.frame = CGRect(x: size.width*0.5, y: size.width*0.38, width: size.width*0.6, height: size.height*0.6)
         leftWing.frame = CGRect(x: size.width*0.5, y: size.width*0.38, width: size.width*0.6, height: size.height*0.6)
         fairyBody.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
@@ -90,7 +88,7 @@ class Fairy {
         let groupAnimation_R = CAAnimationGroup()
         groupAnimation_R.animations = [animX_R,animZ_R]
         groupAnimation_R.repeatCount = Float.infinity
-        groupAnimation_R.duration = 0.6
+        groupAnimation_R.duration = 0.5
         
         rightWing.addAnimation(groupAnimation_R, forKey:nil)
 
@@ -117,7 +115,7 @@ class Fairy {
         let groupAnimation_L = CAAnimationGroup()
         groupAnimation_L.animations = [animX_L,animZ_L]
         groupAnimation_L.repeatCount = Float.infinity
-        groupAnimation_L.duration = 0.6
+        groupAnimation_L.duration = 0.5
     
         leftWing.addAnimation(groupAnimation_L, forKey: nil)
 

@@ -17,7 +17,7 @@ class TFFairyDust {
         println("frame : \(layer.frame)")
         
         var emit = CAEmitterLayer()
-        emit.frame.origin = CGPoint(x: 20, y: 200)
+        emit.frame.origin = CGPoint(x: 200, y: 200)
         emit.frame.size = CGSize(width: 40, height: 40)
         emit.emitterPosition = CGPoint(x: 20, y: 20)
         emit.emitterShape = kCAEmitterLayerPoint
@@ -28,12 +28,14 @@ class TFFairyDust {
         let cell = makeEmitterCellSmall()
         let cellGlow = makeEmitterCellGlow()
         
-        
         emit.emitterCells = [cell,cellGlow]
         
-        
-        
         self.applyTranlationToLayer(emit)
+
+        let size = CGSize(width: 100, height: 100)
+        let fairy = Fairy.fairy(size)
+        emit.addSublayer(fairy)
+
         
         layer.addSublayer(emit)
         
@@ -61,7 +63,7 @@ class TFFairyDust {
         
         cell.birthRate = 40
         cell.lifetime = 1.0
-        cell.velocity = 120
+        cell.velocity = -120
         cell.emissionRange = CGFloat(M_PI)/6.0
         
         cell.xAcceleration = -20
@@ -120,7 +122,7 @@ class TFFairyDust {
         
         cell.birthRate = 10
         cell.lifetime = 1.0
-        cell.velocity = 120
+        cell.velocity = -120
         cell.emissionRange = CGFloat(M_PI)/6.0
         
         cell.scale = 0.3
@@ -148,6 +150,7 @@ class TFFairyDust {
         
         let path = UIBezierPath()
         path.moveToPoint(CGPoint(x: 16,y: 16))
+        
         path.addCurveToPoint(CGPoint(x: 300, y: 200), controlPoint1: CGPoint(x: 16, y: 400), controlPoint2: CGPoint(x: 300, y: 500))
         
         // create a new CAKeyframeAnimation that animates the objects position
@@ -161,7 +164,7 @@ class TFFairyDust {
         anim.duration = 5.0
         
         // we add the animation to the squares 'layer' property
-        layer.addAnimation(anim, forKey: "position")
+        layer.addAnimation(anim, forKey: nil)
         
     }
     
