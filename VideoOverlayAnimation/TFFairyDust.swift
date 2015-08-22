@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import QuartzCore
+import AVFoundation
 
 class TFFairyDust {
     
@@ -30,9 +30,9 @@ class TFFairyDust {
         
         emit.emitterCells = [cell,cellGlow]
         
-        self.applyTranlationToLayer(emit)
+      //  self.applyTranlationToLayer(emit)
 
-        let size = CGSize(width: 100, height: 100)
+        let size = CGSize(width: 200, height: 200)
         let fairy = Fairy.fairy(size)
         emit.addSublayer(fairy)
 
@@ -162,6 +162,9 @@ class TFFairyDust {
         anim.rotationMode = kCAAnimationRotateAuto
         anim.repeatCount = Float.infinity
         anim.duration = 5.0
+        anim.beginTime = AVCoreAnimationBeginTimeAtZero
+
+
         
         // we add the animation to the squares 'layer' property
         layer.addAnimation(anim, forKey: nil)

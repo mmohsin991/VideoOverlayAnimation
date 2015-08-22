@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 
 class FairyLayer: CALayer {
@@ -89,7 +90,8 @@ class Fairy {
         groupAnimation_R.animations = [animX_R,animZ_R]
         groupAnimation_R.repeatCount = Float.infinity
         groupAnimation_R.duration = 0.5
-        
+        groupAnimation_R.beginTime = AVCoreAnimationBeginTimeAtZero
+
         rightWing.addAnimation(groupAnimation_R, forKey:nil)
 
         
@@ -116,7 +118,9 @@ class Fairy {
         groupAnimation_L.animations = [animX_L,animZ_L]
         groupAnimation_L.repeatCount = Float.infinity
         groupAnimation_L.duration = 0.5
-    
+        groupAnimation_L.beginTime = AVCoreAnimationBeginTimeAtZero
+
+        
         leftWing.addAnimation(groupAnimation_L, forKey: nil)
 
         
