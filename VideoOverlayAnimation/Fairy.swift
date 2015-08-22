@@ -46,68 +46,83 @@ class Fairy {
         let fairyWingImg = UIImage(named: "fairyWing.png")
         let fairyBodyImg = UIImage(named: "fairyBody.png")
         
-        
+        leftWing.contents = fairyWingImg?.CGImage
         rightWing.contents = fairyWingImg?.CGImage
         fairyBody.contents = fairyBodyImg?.CGImage
         
         let size = CGSize(width: 100, height: 100)
         
         parentLayer.frame = CGRect(origin: CGPointZero, size: size)
-        rightWing.frame = CGRect(x: size.width*0.5, y: size.width*0.4, width: size.width*0.6, height: size.height*0.6)
+        rightWing.frame = CGRect(x: size.width*0.5, y: size.width*0.38, width: size.width*0.6, height: size.height*0.6)
+        leftWing.frame = CGRect(x: size.width*0.5, y: size.width*0.38, width: size.width*0.6, height: size.height*0.6)
         fairyBody.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
 
         
         
-        rightWing.backgroundColor = UIColor.lightGrayColor().CGColor
+//        rightWing.backgroundColor = UIColor.lightGrayColor().CGColor
+//        leftWing.backgroundColor = UIColor.blueColor().CGColor
 //        fairyBody.backgroundColor = UIColor.blueColor().colorWithAlphaComponent(0.7).CGColor
-        parentLayer.backgroundColor = UIColor.greenColor().colorWithAlphaComponent(0.7).CGColor
-        
-        
- //       rightWing.anchorPoint = CGPointMake(0,1)
-//        rightWing.transform = CATransform3DMakeRotation(0.9, 0, 0, 1)
+//        parentLayer.backgroundColor = UIColor.greenColor().colorWithAlphaComponent(0.7).CGColor
         
         
         // apply the distance-mapping transform.
 //        var transform = CATransform3DIdentity
 //        transform.m34 = -1.0/1000.0
 //        parentLayer.sublayerTransform = transform
-//
-//        let rightWingAnimation = CAKeyframeAnimation(keyPath: "transfor.rotate")
-//        
-//        rightWingAnimation.duration = 1
-//        rightWingAnimation.repeatCount = 100
 
-
+        
+        // Right wing animation
+        rightWing.transform = CATransform3DMakeRotation(0.1, 0, 0, 1)
         rightWing.anchorPoint = CGPointMake(1,1)
-        let animX = CAKeyframeAnimation(keyPath:"transform")
-        animX.values = [0.2,0.5,0.8]
-        animX.additive = true
-        animX.duration = 2.0
+        let animX_R = CAKeyframeAnimation(keyPath:"transform")
+        animX_R.values = [0.0,0.9,0.0]
+        animX_R.additive = true
+        animX_R.rotationMode = kCAAnimationRotateAutoReverse
+        animX_R.valueFunction = CAValueFunction(name: kCAValueFunctionRotateX)
         
-        animX.valueFunction = CAValueFunction(name: kCAValueFunctionRotateX)
+        let animZ_R = CAKeyframeAnimation(keyPath:"transform")
+        animZ_R.values = [0.0,0.4,0.0]
+        animZ_R.additive = true
+        animZ_R.rotationMode = kCAAnimationRotateAutoReverse
+
+        animZ_R.valueFunction = CAValueFunction(name: kCAValueFunctionRotateZ)
         
-        let animY = CAKeyframeAnimation(keyPath:"transform")
-        animY.values = [0.2,0.5,0.8]
-        animY.additive = true
-        animY.duration = 2.0
+        let groupAnimation_R = CAAnimationGroup()
+        groupAnimation_R.animations = [animX_R,animZ_R]
+        groupAnimation_R.repeatCount = Float.infinity
+        groupAnimation_R.duration = 0.6
         
-        animY.valueFunction = CAValueFunction(name: kCAValueFunctionRotateY)
-        
-        let groupAnimation = CAAnimationGroup()
-        groupAnimation.animations = [animX,animY]
-        groupAnimation.repeatCount = Float.infinity
-        groupAnimation.duration = 2.0
-        
-        rightWing.addAnimation(groupAnimation, forKey:nil)
+        rightWing.addAnimation(groupAnimation_R, forKey:nil)
 
         
         
+        // Left wing animation
+        leftWing.transform = CATransform3DMakeRotation(0.1, 0, 0, 1)
+        leftWing.anchorPoint = CGPointMake(1,1)
         
+        let animX_L = CAKeyframeAnimation(keyPath:"transform")
+        animX_L.values = [0.0,0.9,0.0]
+        animX_L.additive = true
+        animX_L.rotationMode = kCAAnimationRotateAutoReverse
         
+        animX_L.valueFunction = CAValueFunction(name: kCAValueFunctionRotateX)
         
+        let animZ_L = CAKeyframeAnimation(keyPath:"transform")
+        animZ_L.values = [0.0,0.0,0.0]
+        animZ_L.additive = true
+        animZ_L.rotationMode = kCAAnimationRotateAutoReverse
         
+        animZ_L.valueFunction = CAValueFunction(name: kCAValueFunctionRotateZ)
         
+        let groupAnimation_L = CAAnimationGroup()
+        groupAnimation_L.animations = [animX_L,animZ_L]
+        groupAnimation_L.repeatCount = Float.infinity
+        groupAnimation_L.duration = 0.6
+    
+        leftWing.addAnimation(groupAnimation_L, forKey: nil)
+
         
+        parentLayer.addSublayer(leftWing)
         parentLayer.addSublayer(rightWing)
         parentLayer.addSublayer(fairyBody)
         
