@@ -8,6 +8,8 @@
 
 import UIKit
 import QuartzCore
+import MobileCoreServices
+import MediaPlayer
 
 
 var kGolgenColor = UIColor(red: 1.0, green: 0.81, blue: 0.41, alpha: 1.0)
@@ -18,6 +20,8 @@ class FairyAnimationVC: UIViewController {
 
     @IBOutlet weak var imgView: UIImageView!
     
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,7 +41,7 @@ class FairyAnimationVC: UIViewController {
     }
     
 
-
+    
 }
 
 

@@ -292,8 +292,6 @@ class SetVideoOrientationAndAnimation {
         
         // MARK: videoOverlay animation
         
-        
-        
         applyVideoEffectsToComposition(videoComposition, size: videoComposition.renderSize, image: imageWithColor(UIColor.blueColor(), videoComposition.renderSize))
         
         
@@ -400,6 +398,7 @@ class SetVideoOrientationAndAnimation {
 
         TFFairyDust.fairyDust(overlayLayer)
         
+        
         var videoLayer = CALayer()
         videoLayer.frame = CGRectMake(0, 0, size.width, size.height)
         videoLayer.masksToBounds = true
@@ -414,15 +413,6 @@ class SetVideoOrientationAndAnimation {
         composition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, inLayer: parentLayer)
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     

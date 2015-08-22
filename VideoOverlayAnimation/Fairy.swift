@@ -52,8 +52,11 @@ class Fairy {
         fairyBody.contents = fairyBodyImg?.CGImage
         
         parentLayer.frame = CGRect(origin: CGPoint(x: -size.height/2, y: -size.height/2.6), size: size)
-        rightWing.frame = CGRect(x: size.width*0.5, y: size.width*0.38, width: size.width*0.6, height: size.height*0.6)
-        leftWing.frame = CGRect(x: size.width*0.5, y: size.width*0.38, width: size.width*0.6, height: size.height*0.6)
+        // 0 == 0.38 (size.width*0)
+        // 0.6 == 0.5 (size.width*0)
+
+        rightWing.frame = CGRect(x: size.width*0.6, y: size.width*0, width: size.width*0.6, height: size.height*0.6)
+        leftWing.frame = CGRect(x: size.width*0.6, y: size.width*0, width: size.width*0.6, height: size.height*0.6)
         fairyBody.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
 
         
@@ -72,17 +75,16 @@ class Fairy {
         
         // Right wing animation
         rightWing.transform = CATransform3DMakeRotation(0.1, 0, 0, 1)
-        rightWing.anchorPoint = CGPointMake(1,1)
+//        rightWing.anchorPoint = CGPointMake(1,1)
+        rightWing.anchorPoint = CGPointMake(1,0)
         let animX_R = CAKeyframeAnimation(keyPath:"transform")
         animX_R.values = [0.0,0.9,0.0]
         animX_R.additive = true
-        animX_R.rotationMode = kCAAnimationRotateAutoReverse
         animX_R.valueFunction = CAValueFunction(name: kCAValueFunctionRotateX)
         
         let animZ_R = CAKeyframeAnimation(keyPath:"transform")
         animZ_R.values = [0.0,0.4,0.0]
         animZ_R.additive = true
-        animZ_R.rotationMode = kCAAnimationRotateAutoReverse
 
         animZ_R.valueFunction = CAValueFunction(name: kCAValueFunctionRotateZ)
         
@@ -98,8 +100,8 @@ class Fairy {
         
         // Left wing animation
         leftWing.transform = CATransform3DMakeRotation(0.1, 0, 0, 1)
-        leftWing.anchorPoint = CGPointMake(1,1)
-        
+        //leftWing.anchorPoint = CGPointMake(1,1)
+        leftWing.anchorPoint = CGPointMake(1,0)
         let animX_L = CAKeyframeAnimation(keyPath:"transform")
         animX_L.values = [0.0,0.9,0.0]
         animX_L.additive = true
