@@ -388,7 +388,7 @@ class SetVideoOrientationAndAnimation {
 //        overlayLayer.masksToBounds = true
         
         
-//        // animation
+        // animation
 //        let basicAnimation = CABasicAnimation(keyPath: "transform.scale")
 //        basicAnimation.duration = 1
 //        basicAnimation.repeatCount = 100
@@ -399,8 +399,6 @@ class SetVideoOrientationAndAnimation {
 //        overlayLayer.addAnimation(basicAnimation, forKey: "scale")
 
         TFFairyDust.fairyDust(overlayLayer)
-
-        
 
         
         var videoLayer = CALayer()

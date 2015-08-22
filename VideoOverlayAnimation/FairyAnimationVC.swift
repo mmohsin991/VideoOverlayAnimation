@@ -25,8 +25,13 @@ class FairyAnimationVC: UIViewController {
         
         
             
-       TFFairyDust.fairyDust(self.view.layer)
+       //TFFairyDust.fairyDust(self.view.layer)
 
+        let fairy = Fairy.fairy()
+        
+        
+        
+        self.view.layer.addSublayer(fairy)
         
     
     }
@@ -46,12 +51,12 @@ class MyView: UIView {
         
         override func drawRect(rect: CGRect) {
         
-            let path = UIBezierPath()
-            path.moveToPoint(CGPoint(x: 16,y: 16))
-            path.addCurveToPoint(CGPoint(x: 300, y: 200), controlPoint1: CGPoint(x: 16, y: 400), controlPoint2: CGPoint(x: 300, y: 500))
-            
-            UIColor.greenColor().set()
-            path.stroke()
+//            let path = UIBezierPath()
+//            path.moveToPoint(CGPoint(x: 16,y: 16))
+//            path.addCurveToPoint(CGPoint(x: 300, y: 200), controlPoint1: CGPoint(x: 16, y: 400), controlPoint2: CGPoint(x: 300, y: 500))
+//            
+//            UIColor.greenColor().set()
+//            path.stroke()
             
             
 

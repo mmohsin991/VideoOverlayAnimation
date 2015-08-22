@@ -23,6 +23,9 @@
 		4233470D1B85D38700D3293D /* FairyAnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4233470C1B85D38700D3293D /* FairyAnimationVC.swift */; };
 		4233470F1B860E6500D3293D /* glow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4233470E1B860E6500D3293D /* glow.png */; };
 		423347111B86218600D3293D /* TFFairyDust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423347101B86218600D3293D /* TFFairyDust.swift */; };
+		423347131B86451E00D3293D /* Fairy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423347121B86451E00D3293D /* Fairy.swift */; };
+		423347161B8645AA00D3293D /* fairyBody.png in Resources */ = {isa = PBXBuildFile; fileRef = 423347141B8645AA00D3293D /* fairyBody.png */; };
+		423347171B8645AA00D3293D /* fairyWing.png in Resources */ = {isa = PBXBuildFile; fileRef = 423347151B8645AA00D3293D /* fairyWing.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 		4233470C1B85D38700D3293D /* FairyAnimationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FairyAnimationVC.swift; sourceTree = "<group>"; };
 		4233470E1B860E6500D3293D /* glow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glow.png; sourceTree = "<group>"; };
 		423347101B86218600D3293D /* TFFairyDust.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFFairyDust.swift; sourceTree = "<group>"; };
+		423347121B86451E00D3293D /* Fairy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fairy.swift; sourceTree = "<group>"; };
+		423347141B8645AA00D3293D /* fairyBody.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyBody.png; sourceTree = "<group>"; };
+		423347151B8645AA00D3293D /* fairyWing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyWing.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,8 @@
 				421229D51B84EA9E00A5EC3E /* sampleAudio.mp3 */,
 				421229D11B84E41400A5EC3E /* Record.png */,
 				421229C81B849C6600A5EC3E /* fairy.gif */,
+				423347141B8645AA00D3293D /* fairyBody.png */,
+				423347151B8645AA00D3293D /* fairyWing.png */,
 			);
 			name = Samples;
 			sourceTree = "<group>";
@@ -154,6 +162,7 @@
 				421229CC1B84CA8600A5EC3E /* VideoOverlay.swift */,
 				421229CA1B84B31100A5EC3E /* Functions.swift */,
 				423347101B86218600D3293D /* TFFairyDust.swift */,
+				423347121B86451E00D3293D /* Fairy.swift */,
 			);
 			name = "APIs and Functions";
 			sourceTree = "<group>";
@@ -242,7 +251,9 @@
 				421229C91B849C6600A5EC3E /* fairy.gif in Resources */,
 				42165CDB1B834D69004873D9 /* Main.storyboard in Resources */,
 				421229D21B84E41400A5EC3E /* Record.png in Resources */,
+				423347161B8645AA00D3293D /* fairyBody.png in Resources */,
 				4233470F1B860E6500D3293D /* glow.png in Resources */,
+				423347171B8645AA00D3293D /* fairyWing.png in Resources */,
 				42165CE01B834D69004873D9 /* LaunchScreen.xib in Resources */,
 				421229D61B84EA9E00A5EC3E /* sampleAudio.mp3 in Resources */,
 				42165CDD1B834D69004873D9 /* Images.xcassets in Resources */,
@@ -264,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				423347111B86218600D3293D /* TFFairyDust.swift in Sources */,
+				423347131B86451E00D3293D /* Fairy.swift in Sources */,
 				42165CD81B834D69004873D9 /* ViewController.swift in Sources */,
 				42165CD61B834D69004873D9 /* AppDelegate.swift in Sources */,
 				42165CF81B835BE1004873D9 /* AudioVideoMerge.swift in Sources */,

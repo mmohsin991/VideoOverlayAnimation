@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import QuartzCore
 
 class TFFairyDust {
     
@@ -137,11 +137,6 @@ class TFFairyDust {
         //        cell.scaleRange = 0.2
         //        cell.scaleSpeed = 0.2
         //        cell.greenRange = 0.5
-        //        cell.greenSpeed = 0.75
-        
-        
-        
-        
         
         return cell
     }
@@ -149,7 +144,7 @@ class TFFairyDust {
     
     
     
-    class func applyTranlationToLayer(layer : CAEmitterLayer){
+    class func applyTranlationToLayer(layer : CALayer){
         
         let path = UIBezierPath()
         path.moveToPoint(CGPoint(x: 16,y: 16))
@@ -161,15 +156,18 @@ class TFFairyDust {
         // set the animations path to our bezier curve
         anim.path = path.CGPath
         
-        
         anim.rotationMode = kCAAnimationRotateAuto
         anim.repeatCount = Float.infinity
         anim.duration = 5.0
         
         // we add the animation to the squares 'layer' property
         layer.addAnimation(anim, forKey: "position")
+        
     }
     
 
     
 }
+
+
+
