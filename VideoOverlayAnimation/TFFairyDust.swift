@@ -11,15 +11,12 @@ import AVFoundation
 
 class TFFairyDust {
     
-    class func fairyDust(layer : CALayer){
+    class func fairyDust(emittingPoint : CGPoint) -> CAEmitterLayer{
         
-        
-        println("frame : \(layer.frame)")
         
         var emit = CAEmitterLayer()
-        emit.frame.origin = CGPoint(x: 200, y: 200)
-        emit.frame.size = CGSize(width: 40, height: 40)
-        emit.emitterPosition = CGPoint(x: 20, y: 20)
+        emit.frame.origin = emittingPoint
+        emit.emitterPosition = CGPoint(x: 0, y: 0)
         emit.emitterShape = kCAEmitterLayerPoint
         emit.emitterMode = kCAEmitterLayerPoints
         
@@ -30,14 +27,7 @@ class TFFairyDust {
         
         emit.emitterCells = [cell,cellGlow]
         
-      //  self.applyTranlationToLayer(emit)
-
-        let size = CGSize(width: 200, height: 200)
-        let fairy = Fairy.fairy(size)
-        emit.addSublayer(fairy)
-
-        
-        layer.addSublayer(emit)
+        return emit
         
     }
     
@@ -45,7 +35,7 @@ class TFFairyDust {
     
     
     
-    class func makeEmitterCellSmall() -> CAEmitterCell{
+    private class func makeEmitterCellSmall() -> CAEmitterCell{
         
         // make a partical image
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(3,3), false, 1)
@@ -100,7 +90,7 @@ class TFFairyDust {
         return cell
     }
     
-    class func makeEmitterCellGlow() -> CAEmitterCell{
+    private class func makeEmitterCellGlow() -> CAEmitterCell{
         
         let image = UIImage(named: "glow.png")
         
@@ -129,34 +119,6 @@ class TFFairyDust {
         //        cell.greenRange = 0.5
         
         return cell
-    }
-    
-    
-    
-    
-    class func applyTranlationToLayer(layer : CALayer){
-        
-        let path = UIBezierPath()
-        path.moveToPoint(CGPoint(x: 16,y: 16))
-        
-        path.addCurveToPoint(CGPoint(x: 300, y: 200), controlPoint1: CGPoint(x: 16, y: 400), controlPoint2: CGPoint(x: 300, y: 500))
-        
-        // create a new CAKeyframeAnimation that animates the objects position
-        let anim = CAKeyframeAnimation(keyPath: "position")
-        
-        // set the animations path to our bezier curve
-        anim.path = path.CGPath
-        
-        anim.rotationMode = kCAAnimationRotateAuto
-        anim.repeatCount = Float.infinity
-        anim.duration = 5.0
-        anim.beginTime = AVCoreAnimationBeginTimeAtZero
-
-
-        
-        // we add the animation to the squares 'layer' property
-        layer.addAnimation(anim, forKey: nil)
-        
     }
     
 

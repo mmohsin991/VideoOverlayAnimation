@@ -28,8 +28,11 @@ class FairyAnimationVC: UIViewController {
         // Do any additional setup after loading the view.
         
         
-            
-       TFFairyDust.fairyDust(self.view.layer)        
+        let fairy = Fairy.fairy(CGSize(width: 100, height: 100), center: CGPoint(x: 200, y: 300), fairyDustOn: true)
+    
+        self.view.layer.addSublayer(fairy)
+        
+//       self.view.layer.addSublayer(TFFairyDust.fairyDust(CGPoint(x: 100, y: 100) ) )
         
 
     
@@ -56,10 +59,6 @@ class MyView: UIView {
             
             UIColor.greenColor().set()
             path.stroke()
-            
-            
-
-            
         
             }
 }

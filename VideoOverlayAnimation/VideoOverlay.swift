@@ -396,7 +396,7 @@ class SetVideoOrientationAndAnimation {
 //        basicAnimation.beginTime = AVCoreAnimationBeginTimeAtZero;
 //        overlayLayer.addAnimation(basicAnimation, forKey: "scale")
 
-        TFFairyDust.fairyDust(overlayLayer)
+  //      TFFairyDust.fairyDust(overlayLayer)
         
         
         var videoLayer = CALayer()
