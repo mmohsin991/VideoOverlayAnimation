@@ -16,10 +16,11 @@ enum TFFairySize{
     case Large
 }
 
+let kDegToRad : CGFloat = 0.0174532925
 
 class Fairy {
     
-    class func fairy(size: CGSize,center : CGPoint, fairyDustOn : Bool, useInAVFoundation : Bool) -> CALayer{
+    class func fairy(size: CGSize,center : CGPoint, fairyDustOn : Bool, useInAVFoundation : Bool, animationDuration: Double, environmentSize: CGSize) -> CALayer{
         
         var parentLayer = CALayer()
         var rightWing = CALayer()
@@ -50,16 +51,23 @@ class Fairy {
         // 0 == 0.38 (size.width*0)
         // 0.6 == 0.5 (size.width*0)
 
+        //MARK: set for UIView or AVFoundation
         var xAxis : CGFloat = 0.5
         var yAxis : CGFloat = 0.38
         var anchorPoint = CGPointMake(1,1)
         var transform = CATransform3DMakeRotation(0.1, 0, 0, 1)
-        var fairyUpperBodyYAxis : CGFloat = 0.18
+        var fairyUpperBodyYAxis : CGFloat = 0.17
+        var fairyLegsYAxis : CGFloat = 0.56
+        var fairyLeg1AnchorPoint = CGPointMake(0.93,0.62)
+        var fairyLeg2AnchorPoint = CGPointMake(0.77,0.91)
         // if use in AVLayer b/c the window cordinates in AVFoundaiton is starting from bottom left corner
         if useInAVFoundation {
             xAxis = 0.5
             yAxis = 0.0
-            fairyUpperBodyYAxis = 0.22
+            fairyUpperBodyYAxis = 0.18
+            fairyLegsYAxis = 0.09
+            fairyLeg1AnchorPoint = CGPointMake(0.93,0.38)
+            fairyLeg2AnchorPoint = CGPointMake(0.77,0.09)
             anchorPoint = CGPointMake(1,0)
             transform = CATransform3DMakeRotation(-0.1, 0, 0, 1)
 
@@ -71,17 +79,18 @@ class Fairy {
         leftWing.frame = CGRect(x: size.width*xAxis, y: size.width*yAxis, width: size.width*0.6, height: size.height*0.6)
         fairyBody.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         
-        fairyUpperBody.frame = CGRect(x: size.width*0.38, y: size.height*fairyUpperBodyYAxis, width: size.width*0.6, height: size.height*0.6)
-        fairyLeg1.frame =  CGRect(x: size.width*xAxis, y: size.width*yAxis, width: size.width*0.6, height: size.height*0.6)
-        fairyLeg2.frame =  CGRect(x: size.width*xAxis, y: size.width*yAxis, width: size.width*0.6, height: size.height*0.6)
+        fairyUpperBody.frame = CGRect(x: size.width*0.34, y: size.height*fairyUpperBodyYAxis, width: size.width*0.65, height: size.height*0.65)
+        fairyLeg1.frame =  CGRect(x: size.width*0.20, y: size.width*fairyLegsYAxis, width: size.width*0.35, height: size.height*0.35)
+        fairyLeg2.frame =  CGRect(x: size.width*0.20, y: size.width*fairyLegsYAxis, width: size.width*0.35, height: size.height*0.35)
 
         
         
 //        rightWing.backgroundColor = UIColor.lightGrayColor().CGColor
 //        leftWing.backgroundColor = UIColor.blueColor().CGColor
 ////        fairyBody.backgroundColor = UIColor.blueColor().colorWithAlphaComponent(0.7).CGColor
-        parentLayer.backgroundColor = UIColor.greenColor().colorWithAlphaComponent(0.7).CGColor
+//        parentLayer.backgroundColor = UIColor.greenColor().colorWithAlphaComponent(0.7).CGColor
 //        fairyUpperBody.backgroundColor = UIColor.yellowColor().CGColor
+//        fairyLeg1.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.7).CGColor
 
         
         // apply the distance-mapping transform.
@@ -90,7 +99,7 @@ class Fairy {
 //        parentLayer.sublayerTransform = transform
 
         
-        // Right wing animation
+        //MARK: Right wing animation
         rightWing.transform = transform
 //        rightWing.anchorPoint = CGPointMake(1,1)
         rightWing.anchorPoint = anchorPoint
@@ -104,7 +113,6 @@ class Fairy {
             animZ_R.values = [0.0,-0.4,0.0]
         }else{
             animZ_R.values = [0.0,0.4,0.0]
-
         }
         animZ_R.additive = true
 
@@ -120,7 +128,7 @@ class Fairy {
 
         
         
-        // Left wing animation
+        //MARK: Left wing animation
         leftWing.transform = transform
         //leftWing.anchorPoint = CGPointMake(1,1)
         leftWing.anchorPoint = anchorPoint
@@ -145,25 +153,67 @@ class Fairy {
 
         
         
-        // fairy dust
+        //MARK: fairy Leg1 animation
+        fairyLeg1.anchorPoint = fairyLeg1AnchorPoint
+        
+        let animZ_Leg1 = CAKeyframeAnimation(keyPath:"transform")
+        if useInAVFoundation {
+            animZ_Leg1.values = [0.0,(30*kDegToRad),0.0]
+        }else{
+            animZ_Leg1.values = [0.0,-(30*kDegToRad),0.0]
+        }
+        animZ_Leg1.additive = true
+        animZ_Leg1.valueFunction = CAValueFunction(name: kCAValueFunctionRotateZ)
+        animZ_Leg1.repeatCount = Float.infinity
+        animZ_Leg1.duration = 1.0
+        animZ_Leg1.beginTime = AVCoreAnimationBeginTimeAtZero
+        
+        fairyLeg1.addAnimation(animZ_Leg1, forKey: nil)
+        
+        
+        
+        //MARK: fairy Leg2 animation
+        fairyLeg2.anchorPoint = fairyLeg2AnchorPoint
+        let animZ_Leg2 = CAKeyframeAnimation(keyPath:"transform")
+        if useInAVFoundation {
+            fairyLeg2.transform = CATransform3DMakeRotation((50*kDegToRad), 0, 0, 1)
+            animZ_Leg2.values = [0.0,-(30*kDegToRad),0.0]
+
+        }else{
+            fairyLeg2.transform = CATransform3DMakeRotation(-(50*kDegToRad), 0, 0, 1)
+            animZ_Leg2.values = [0.0,(30*kDegToRad),0.0]
+        }
+        animZ_Leg2.additive = true
+        animZ_Leg2.valueFunction = CAValueFunction(name: kCAValueFunctionRotateZ)
+        animZ_Leg2.repeatCount = Float.infinity
+        animZ_Leg2.duration = 1.0
+        animZ_Leg2.beginTime = AVCoreAnimationBeginTimeAtZero
+        
+        fairyLeg2.addAnimation(animZ_Leg2, forKey: nil)
+        
+        
+        //MARK: fairy dust
         if fairyDustOn{
             let dustEmittingPoint = CGPoint(x: size.width/1.4, y: size.height/2)
             let fairyDust = TFFairyDust.fairyDust(dustEmittingPoint)
             //fairyDust.transform = CATransform3DMakeScale(0.5, 0.5, 1)
+            //fairyDust.scale = 2.0
             parentLayer.addSublayer(fairyDust)
         }
         
         
-        parentLayer.addSublayer(fairyUpperBody)
         
         parentLayer.addSublayer(leftWing)
         parentLayer.addSublayer(rightWing)
 //        parentLayer.addSublayer(fairyBody)
-//        parentLayer.addSublayer(fairyLeg1)
-//        parentLayer.addSublayer(fairyLeg2)
+        parentLayer.addSublayer(fairyLeg1)
+        parentLayer.addSublayer(fairyLeg2)
+        
+        parentLayer.addSublayer(fairyUpperBody)
+
         
         
-        
+        //MARK: parent layer animation
         
         let animX_Parent = CAKeyframeAnimation(keyPath:"transform")
         animX_Parent.values = [0.0,0.9,0.0,-0.9,0.0]
@@ -176,38 +226,18 @@ class Fairy {
         groupAnimation_Parent.duration = 5.0
         groupAnimation_Parent.beginTime = AVCoreAnimationBeginTimeAtZero
         
-        
         //parentLayer.addAnimation(groupAnimation_Parent, forKey: nil)
         
-       // applyTranlationToLayer(parentLayer)
+        
+        
+        
+        // MARK: animation path
+        
+        TFToothFairyPaths.applyPath2ToLayer(parentLayer, animationDuration: animationDuration, size: environmentSize)
+        
+        
         
         return parentLayer
     }
     
-    
-    
-    private class func applyTranlationToLayer(layer : CALayer){
-        
-        let path = UIBezierPath()
-        path.moveToPoint(CGPoint(x: 16,y: 16))
-        
-        path.addCurveToPoint(CGPoint(x: 300, y: 200), controlPoint1: CGPoint(x: 16, y: 400), controlPoint2: CGPoint(x: 300, y: 500))
-        
-        // create a new CAKeyframeAnimation that animates the objects position
-        let anim = CAKeyframeAnimation(keyPath: "position")
-        
-        // set the animations path to our bezier curve
-        anim.path = path.CGPath
-        
-        anim.rotationMode = kCAAnimationRotateAuto
-        anim.repeatCount = Float.infinity
-        anim.duration = 5.0
-        anim.beginTime = AVCoreAnimationBeginTimeAtZero
-        
-        
-        
-        // we add the animation to the squares 'layer' property
-        layer.addAnimation(anim, forKey: nil)
-        
-    }
 }

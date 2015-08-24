@@ -28,7 +28,7 @@ class FairyAnimationVC: UIViewController {
         // Do any additional setup after loading the view.
         
         
-        let fairy = Fairy.fairy(CGSize(width: 100, height: 100), center: CGPoint(x: 200, y: 300), fairyDustOn: true, useInAVFoundation: false)
+        let fairy = Fairy.fairy(CGSize(width: 100, height: 100), center: CGPoint(x: 200, y: 300), fairyDustOn: true, useInAVFoundation: false, animationDuration: 10.0,  environmentSize: self.view.frame.size)
     
         self.view.layer.addSublayer(fairy)
         
@@ -80,10 +80,35 @@ class MyView: UIView {
         
         override func drawRect(rect: CGRect) {
         
+       //     var size = CGSize(width: 720, height: 1280)
+            var size = CGSize(width: 320, height: 550)
+
+            var pathPoints = [
+                CGPoint(x: size.width*0.0,y: size.height*0.1),
+                CGPoint(x: size.width*0.8,y: size.height*0.2),
+                CGPoint(x: size.width*0.8,y: size.height*0.3),
+                CGPoint(x: size.width*0.2,y: size.height*0.4),
+                CGPoint(x: size.width*0.2,y: size.height*0.5),
+            ]
+            var controllPoints = [
+                CGPoint(x: size.width*0.5,y: size.height*0.0),
+                CGPoint(x: size.width*1.0,y: size.height*0.285),
+                CGPoint(x: size.width*0.5,y: size.height*0.3),
+                CGPoint(x: size.width*0.0,y: size.height*0.45),
+            ]
             let path = UIBezierPath()
-            path.moveToPoint(CGPoint(x: 16,y: 16))
-            path.addCurveToPoint(CGPoint(x: 300, y: 200), controlPoint1: CGPoint(x: 16, y: 400), controlPoint2: CGPoint(x: 300, y: 500))
+            path.moveToPoint(CGPoint(x: size.width*0.0,y: size.height*0.1))
+            path.addQuadCurveToPoint(pathPoints[1], controlPoint: controllPoints[0])
+            path.addQuadCurveToPoint(pathPoints[2], controlPoint: controllPoints[1])
+            path.addQuadCurveToPoint(pathPoints[3], controlPoint: controllPoints[2])
+            path.addQuadCurveToPoint(pathPoints[4], controlPoint: controllPoints[3])
             
+//            path.addCurveToPoint(
+//                CGPoint(x: size.width*0.8,y: size.height*0.2),
+//                controlPoint1: CGPoint(x: size.width*2.0,y: size.height*1.2),
+//                controlPoint2: CGPoint(x: -size.width*1.0,y: size.height*1.1))
+            
+            path.lineJoinStyle = kCGLineJoinRound
             UIColor.greenColor().set()
             path.stroke()
         

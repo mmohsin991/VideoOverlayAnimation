@@ -379,6 +379,8 @@ class SetVideoOrientationAndAnimation {
     
     private class func applyVideoOverlayAnimation(composition:AVMutableVideoComposition, size:CGSize, image:UIImage){
         
+        println("vodeo size: \(size)")
+        
         var overlayImage = UIImage(named: "Record.png")
         var overlayLayer = CALayer()
 //        overlayLayer.contents = overlayImage!.CGImage
@@ -396,7 +398,7 @@ class SetVideoOrientationAndAnimation {
 //        basicAnimation.beginTime = AVCoreAnimationBeginTimeAtZero;
 //        overlayLayer.addAnimation(basicAnimation, forKey: "scale")
 
-        let fairy = Fairy.fairy(CGSize(width: 200, height: 200), center: CGPoint(x: 200, y: 300), fairyDustOn: false, useInAVFoundation: true)
+        let fairy = Fairy.fairy(CGSize(width: 200, height: 200), center: CGPoint(x: 200, y: 300), fairyDustOn: true, useInAVFoundation: true, animationDuration: 10.0, environmentSize: size)
         
         overlayLayer.addSublayer(fairy)
         

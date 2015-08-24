@@ -26,9 +26,10 @@
 		423347131B86451E00D3293D /* Fairy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423347121B86451E00D3293D /* Fairy.swift */; };
 		423347161B8645AA00D3293D /* fairyBody.png in Resources */ = {isa = PBXBuildFile; fileRef = 423347141B8645AA00D3293D /* fairyBody.png */; };
 		423347171B8645AA00D3293D /* fairyWing.png in Resources */ = {isa = PBXBuildFile; fileRef = 423347151B8645AA00D3293D /* fairyWing.png */; };
-		42E904E81B8B4FE20062557C /* fairyLeg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 42E904E51B8B4FE20062557C /* fairyLeg1.png */; };
-		42E904E91B8B4FE20062557C /* fairyLeg2.png in Resources */ = {isa = PBXBuildFile; fileRef = 42E904E61B8B4FE20062557C /* fairyLeg2.png */; };
-		42E904EA1B8B4FE20062557C /* fairyUpperBody.png in Resources */ = {isa = PBXBuildFile; fileRef = 42E904E71B8B4FE20062557C /* fairyUpperBody.png */; };
+		42E904EE1B8B5D310062557C /* fairyLeg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 42E904EB1B8B5D310062557C /* fairyLeg1.png */; };
+		42E904F01B8B5D310062557C /* fairyUpperBody.png in Resources */ = {isa = PBXBuildFile; fileRef = 42E904ED1B8B5D310062557C /* fairyUpperBody.png */; };
+		42E904F21B8B6DC60062557C /* fairyLeg2.png in Resources */ = {isa = PBXBuildFile; fileRef = 42E904F11B8B6DC60062557C /* fairyLeg2.png */; };
+		42E904F41B8B73080062557C /* TFToothFairyPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E904F31B8B73080062557C /* TFToothFairyPaths.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,9 +66,10 @@
 		423347121B86451E00D3293D /* Fairy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fairy.swift; sourceTree = "<group>"; };
 		423347141B8645AA00D3293D /* fairyBody.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyBody.png; sourceTree = "<group>"; };
 		423347151B8645AA00D3293D /* fairyWing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyWing.png; sourceTree = "<group>"; };
-		42E904E51B8B4FE20062557C /* fairyLeg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyLeg1.png; sourceTree = "<group>"; };
-		42E904E61B8B4FE20062557C /* fairyLeg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyLeg2.png; sourceTree = "<group>"; };
-		42E904E71B8B4FE20062557C /* fairyUpperBody.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyUpperBody.png; sourceTree = "<group>"; };
+		42E904EB1B8B5D310062557C /* fairyLeg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyLeg1.png; sourceTree = "<group>"; };
+		42E904ED1B8B5D310062557C /* fairyUpperBody.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyUpperBody.png; sourceTree = "<group>"; };
+		42E904F11B8B6DC60062557C /* fairyLeg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyLeg2.png; sourceTree = "<group>"; };
+		42E904F31B8B73080062557C /* TFToothFairyPaths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFToothFairyPaths.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,12 +94,12 @@
 			isa = PBXGroup;
 			children = (
 				4233470E1B860E6500D3293D /* glow.png */,
+				42E904EB1B8B5D310062557C /* fairyLeg1.png */,
+				42E904F11B8B6DC60062557C /* fairyLeg2.png */,
+				42E904ED1B8B5D310062557C /* fairyUpperBody.png */,
 				42165CF51B8355F7004873D9 /* sample.mp4 */,
 				421229D51B84EA9E00A5EC3E /* sampleAudio.mp3 */,
 				421229D11B84E41400A5EC3E /* Record.png */,
-				42E904E51B8B4FE20062557C /* fairyLeg1.png */,
-				42E904E61B8B4FE20062557C /* fairyLeg2.png */,
-				42E904E71B8B4FE20062557C /* fairyUpperBody.png */,
 				421229C81B849C6600A5EC3E /* fairy.gif */,
 				423347141B8645AA00D3293D /* fairyBody.png */,
 				423347151B8645AA00D3293D /* fairyWing.png */,
@@ -172,6 +174,7 @@
 				421229CA1B84B31100A5EC3E /* Functions.swift */,
 				423347101B86218600D3293D /* TFFairyDust.swift */,
 				423347121B86451E00D3293D /* Fairy.swift */,
+				42E904F31B8B73080062557C /* TFToothFairyPaths.swift */,
 			);
 			name = "APIs and Functions";
 			sourceTree = "<group>";
@@ -266,13 +269,13 @@
 				42165CDB1B834D69004873D9 /* Main.storyboard in Resources */,
 				421229D21B84E41400A5EC3E /* Record.png in Resources */,
 				423347161B8645AA00D3293D /* fairyBody.png in Resources */,
-				42E904E91B8B4FE20062557C /* fairyLeg2.png in Resources */,
 				4233470F1B860E6500D3293D /* glow.png in Resources */,
-				42E904EA1B8B4FE20062557C /* fairyUpperBody.png in Resources */,
-				42E904E81B8B4FE20062557C /* fairyLeg1.png in Resources */,
+				42E904F01B8B5D310062557C /* fairyUpperBody.png in Resources */,
+				42E904EE1B8B5D310062557C /* fairyLeg1.png in Resources */,
 				423347171B8645AA00D3293D /* fairyWing.png in Resources */,
 				42165CE01B834D69004873D9 /* LaunchScreen.xib in Resources */,
 				421229D61B84EA9E00A5EC3E /* sampleAudio.mp3 in Resources */,
+				42E904F21B8B6DC60062557C /* fairyLeg2.png in Resources */,
 				42165CDD1B834D69004873D9 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +299,7 @@
 				42165CD81B834D69004873D9 /* ViewController.swift in Sources */,
 				42165CD61B834D69004873D9 /* AppDelegate.swift in Sources */,
 				42165CF81B835BE1004873D9 /* AudioVideoMerge.swift in Sources */,
+				42E904F41B8B73080062557C /* TFToothFairyPaths.swift in Sources */,
 				4233470D1B85D38700D3293D /* FairyAnimationVC.swift in Sources */,
 				421229CD1B84CA8600A5EC3E /* VideoOverlay.swift in Sources */,
 				421229CB1B84B31100A5EC3E /* Functions.swift in Sources */,
