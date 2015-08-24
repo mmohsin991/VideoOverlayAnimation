@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yei-NA-f49">
-                                <rect key="frame" x="92" y="55" width="50" height="50"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="glow.png" translatesAutoresizingMaskIntoConstraints="NO" id="yei-NA-f49">
+                                <rect key="frame" x="16" y="8" width="288" height="256"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -72,4 +72,7 @@
             <point key="canvasLocation" x="460" y="294"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="glow.png" width="29" height="29"/>
+    </resources>
 </document>

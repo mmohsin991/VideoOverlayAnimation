@@ -396,8 +396,9 @@ class SetVideoOrientationAndAnimation {
 //        basicAnimation.beginTime = AVCoreAnimationBeginTimeAtZero;
 //        overlayLayer.addAnimation(basicAnimation, forKey: "scale")
 
-  //      TFFairyDust.fairyDust(overlayLayer)
+        let fairy = Fairy.fairy(CGSize(width: 200, height: 200), center: CGPoint(x: 200, y: 300), fairyDustOn: false, useInAVFoundation: true)
         
+        overlayLayer.addSublayer(fairy)
         
         var videoLayer = CALayer()
         videoLayer.frame = CGRectMake(0, 0, size.width, size.height)

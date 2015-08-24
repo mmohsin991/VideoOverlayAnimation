@@ -19,35 +19,70 @@ enum TFFairySize{
 
 class Fairy {
     
-    class func fairy(size: CGSize,center : CGPoint, fairyDustOn : Bool) -> CALayer{
+    class func fairy(size: CGSize,center : CGPoint, fairyDustOn : Bool, useInAVFoundation : Bool) -> CALayer{
         
         var parentLayer = CALayer()
         var rightWing = CALayer()
         var leftWing = CALayer()
         var fairyBody = CALayer()
+        var fairyUpperBody = CALayer()
+        var fairyLeg1 = CALayer()
+        var fairyLeg2 = CALayer()
     
         let fairyWingImg = UIImage(named: "fairyWing.png")
         let fairyBodyImg = UIImage(named: "fairyBody.png")
         
+        let fairyUpperBodyImg = UIImage(named: "fairyUpperBody.png")
+        let fairyLeg1Img = UIImage(named: "fairyLeg1.png")
+        let fairyLeg2Img = UIImage(named: "fairyLeg2.png")
+
+        
         leftWing.contents = fairyWingImg?.CGImage
         rightWing.contents = fairyWingImg?.CGImage
         fairyBody.contents = fairyBodyImg?.CGImage
+
+        fairyUpperBody.contents = fairyUpperBodyImg?.CGImage
+        fairyLeg1.contents = fairyLeg1Img?.CGImage
+        fairyLeg2.contents = fairyLeg2Img?.CGImage
+
         
         parentLayer.frame = CGRect(origin: CGPoint(x: center.x - size.width/2, y: center.y - size.height/2), size: size)
         // 0 == 0.38 (size.width*0)
         // 0.6 == 0.5 (size.width*0)
 
-        rightWing.frame = CGRect(x: size.width*0.5, y: size.width*0.38, width: size.width*0.6, height: size.height*0.6)
-        leftWing.frame = CGRect(x: size.width*0.5, y: size.width*0.38, width: size.width*0.6, height: size.height*0.6)
+        var xAxis : CGFloat = 0.5
+        var yAxis : CGFloat = 0.38
+        var anchorPoint = CGPointMake(1,1)
+        var transform = CATransform3DMakeRotation(0.1, 0, 0, 1)
+        var fairyUpperBodyYAxis : CGFloat = 0.18
+        // if use in AVLayer b/c the window cordinates in AVFoundaiton is starting from bottom left corner
+        if useInAVFoundation {
+            xAxis = 0.5
+            yAxis = 0.0
+            fairyUpperBodyYAxis = 0.22
+            anchorPoint = CGPointMake(1,0)
+            transform = CATransform3DMakeRotation(-0.1, 0, 0, 1)
+
+        }
+
+
+        
+        rightWing.frame = CGRect(x: size.width*xAxis, y: size.width*yAxis, width: size.width*0.6, height: size.height*0.6)
+        leftWing.frame = CGRect(x: size.width*xAxis, y: size.width*yAxis, width: size.width*0.6, height: size.height*0.6)
         fairyBody.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        
+        fairyUpperBody.frame = CGRect(x: size.width*0.38, y: size.height*fairyUpperBodyYAxis, width: size.width*0.6, height: size.height*0.6)
+        fairyLeg1.frame =  CGRect(x: size.width*xAxis, y: size.width*yAxis, width: size.width*0.6, height: size.height*0.6)
+        fairyLeg2.frame =  CGRect(x: size.width*xAxis, y: size.width*yAxis, width: size.width*0.6, height: size.height*0.6)
 
         
         
 //        rightWing.backgroundColor = UIColor.lightGrayColor().CGColor
 //        leftWing.backgroundColor = UIColor.blueColor().CGColor
-//        fairyBody.backgroundColor = UIColor.blueColor().colorWithAlphaComponent(0.7).CGColor
-//        parentLayer.backgroundColor = UIColor.greenColor().colorWithAlphaComponent(0.7).CGColor
-        
+////        fairyBody.backgroundColor = UIColor.blueColor().colorWithAlphaComponent(0.7).CGColor
+        parentLayer.backgroundColor = UIColor.greenColor().colorWithAlphaComponent(0.7).CGColor
+//        fairyUpperBody.backgroundColor = UIColor.yellowColor().CGColor
+
         
         // apply the distance-mapping transform.
 //        var transform = CATransform3DIdentity
@@ -56,16 +91,21 @@ class Fairy {
 
         
         // Right wing animation
-        rightWing.transform = CATransform3DMakeRotation(0.1, 0, 0, 1)
-//        rightWing.anchorPoint = CGPointMake(1,0)
-        rightWing.anchorPoint = CGPointMake(1,1)
+        rightWing.transform = transform
+//        rightWing.anchorPoint = CGPointMake(1,1)
+        rightWing.anchorPoint = anchorPoint
         let animX_R = CAKeyframeAnimation(keyPath:"transform")
         animX_R.values = [0.0,0.9,0.0]
         animX_R.additive = true
         animX_R.valueFunction = CAValueFunction(name: kCAValueFunctionRotateX)
         
         let animZ_R = CAKeyframeAnimation(keyPath:"transform")
-        animZ_R.values = [0.0,0.4,0.0]
+        if useInAVFoundation {
+            animZ_R.values = [0.0,-0.4,0.0]
+        }else{
+            animZ_R.values = [0.0,0.4,0.0]
+
+        }
         animZ_R.additive = true
 
         animZ_R.valueFunction = CAValueFunction(name: kCAValueFunctionRotateZ)
@@ -81,21 +121,17 @@ class Fairy {
         
         
         // Left wing animation
-        leftWing.transform = CATransform3DMakeRotation(0.1, 0, 0, 1)
-        //leftWing.anchorPoint = CGPointMake(1,0)
-        leftWing.anchorPoint = CGPointMake(1,1)
+        leftWing.transform = transform
+        //leftWing.anchorPoint = CGPointMake(1,1)
+        leftWing.anchorPoint = anchorPoint
         let animX_L = CAKeyframeAnimation(keyPath:"transform")
         animX_L.values = [0.0,0.9,0.0]
         animX_L.additive = true
-        animX_L.rotationMode = kCAAnimationRotateAutoReverse
-        
         animX_L.valueFunction = CAValueFunction(name: kCAValueFunctionRotateX)
         
         let animZ_L = CAKeyframeAnimation(keyPath:"transform")
         animZ_L.values = [0.0,0.0,0.0]
         animZ_L.additive = true
-        animZ_L.rotationMode = kCAAnimationRotateAutoReverse
-        
         animZ_L.valueFunction = CAValueFunction(name: kCAValueFunctionRotateZ)
         
         let groupAnimation_L = CAAnimationGroup()
@@ -113,15 +149,37 @@ class Fairy {
         if fairyDustOn{
             let dustEmittingPoint = CGPoint(x: size.width/1.4, y: size.height/2)
             let fairyDust = TFFairyDust.fairyDust(dustEmittingPoint)
+            //fairyDust.transform = CATransform3DMakeScale(0.5, 0.5, 1)
             parentLayer.addSublayer(fairyDust)
         }
         
+        
+        parentLayer.addSublayer(fairyUpperBody)
+        
         parentLayer.addSublayer(leftWing)
         parentLayer.addSublayer(rightWing)
-        parentLayer.addSublayer(fairyBody)
+//        parentLayer.addSublayer(fairyBody)
+//        parentLayer.addSublayer(fairyLeg1)
+//        parentLayer.addSublayer(fairyLeg2)
         
         
-        applyTranlationToLayer(parentLayer)
+        
+        
+        let animX_Parent = CAKeyframeAnimation(keyPath:"transform")
+        animX_Parent.values = [0.0,0.9,0.0,-0.9,0.0]
+        animX_Parent.additive = true
+        animX_Parent.valueFunction = CAValueFunction(name: kCAValueFunctionRotateX)
+
+        let groupAnimation_Parent = CAAnimationGroup()
+        groupAnimation_Parent.animations = [animX_Parent]
+        groupAnimation_Parent.repeatCount = Float.infinity
+        groupAnimation_Parent.duration = 5.0
+        groupAnimation_Parent.beginTime = AVCoreAnimationBeginTimeAtZero
+        
+        
+        //parentLayer.addAnimation(groupAnimation_Parent, forKey: nil)
+        
+       // applyTranlationToLayer(parentLayer)
         
         return parentLayer
     }
