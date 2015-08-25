@@ -16,11 +16,19 @@ enum TFFairySize{
     case Large
 }
 
+enum TFFairyColors{
+    case White
+    case Yellow
+    case Pink
+}
+
 let kDegToRad : CGFloat = 0.0174532925
 
 class Fairy {
     
-    class func fairy(size: CGSize,center : CGPoint, fairyDustOn : Bool, useInAVFoundation : Bool, animationDuration: Double, environmentSize: CGSize) -> CALayer{
+    class func fairy(fairySize: TFFairySize, fairyColor: TFFairyColors, center : CGPoint, fairyDustOn : Bool, useInAVFoundation : Bool, animationDuration: Double, environmentSize: CGSize) -> CALayer{
+        
+        println(animationDuration)
         
         var parentLayer = CALayer()
         var rightWing = CALayer()
@@ -29,28 +37,28 @@ class Fairy {
         var fairyUpperBody = CALayer()
         var fairyLeg1 = CALayer()
         var fairyLeg2 = CALayer()
-    
-        let fairyWingImg = UIImage(named: "fairyWing.png")
+        var size = CGSize(width: 100, height: 100)
         let fairyBodyImg = UIImage(named: "fairyBody.png")
         
-        let fairyUpperBodyImg = UIImage(named: "fairyUpperBody.png")
-        let fairyLeg1Img = UIImage(named: "fairyLeg1.png")
-        let fairyLeg2Img = UIImage(named: "fairyLeg2.png")
-
+        var fairyWingImg = UIImage(named: "fairyWing.png")
+        var fairyUpperBodyImg = UIImage(named: "fairyUpperBody.png")
+        var fairyLeg1Img = UIImage(named: "fairyLeg1.png")
+        var fairyLeg2Img = UIImage(named: "fairyLeg2.png")
         
-        leftWing.contents = fairyWingImg?.CGImage
-        rightWing.contents = fairyWingImg?.CGImage
-        fairyBody.contents = fairyBodyImg?.CGImage
+        if fairyColor == TFFairyColors.Yellow{
+            fairyWingImg = UIImage(named: "fairyWingYellow.png")
+            fairyUpperBodyImg = UIImage(named: "fairyUpperBodyYellow.png")
+            fairyLeg1Img = UIImage(named: "fairyLeg1Yellow.png")
+            fairyLeg2Img = UIImage(named: "fairyLeg2Yellow.png")
+        }
+        else if fairyColor == TFFairyColors.Pink{
+            fairyWingImg = UIImage(named: "fairyWingPink.png")
+            fairyUpperBodyImg = UIImage(named: "fairyUpperBodyPink.png")
+            fairyLeg1Img = UIImage(named: "fairyLeg1Pink.png")
+            fairyLeg2Img = UIImage(named: "fairyLeg2Pink.png")
+        }
 
-        fairyUpperBody.contents = fairyUpperBodyImg?.CGImage
-        fairyLeg1.contents = fairyLeg1Img?.CGImage
-        fairyLeg2.contents = fairyLeg2Img?.CGImage
-
-        
-        parentLayer.frame = CGRect(origin: CGPoint(x: center.x - size.width/2, y: center.y - size.height/2), size: size)
-        // 0 == 0.38 (size.width*0)
-        // 0.6 == 0.5 (size.width*0)
-
+    
         //MARK: set for UIView or AVFoundation
         var xAxis : CGFloat = 0.5
         var yAxis : CGFloat = 0.38
@@ -70,10 +78,36 @@ class Fairy {
             fairyLeg2AnchorPoint = CGPointMake(0.77,0.09)
             anchorPoint = CGPointMake(1,0)
             transform = CATransform3DMakeRotation(-0.1, 0, 0, 1)
-
+            
         }
 
+        
+        
+        leftWing.contents = fairyWingImg?.CGImage
+        rightWing.contents = fairyWingImg?.CGImage
+        fairyBody.contents = fairyBodyImg?.CGImage
 
+        fairyUpperBody.contents = fairyUpperBodyImg?.CGImage
+        fairyLeg1.contents = fairyLeg1Img?.CGImage
+        fairyLeg2.contents = fairyLeg2Img?.CGImage
+
+        switch(fairySize){
+        case .Small:
+             size = CGSize(width: 100, height: 100)
+        case .Medium:
+             size = CGSize(width: 150, height: 150)
+        case .Large:
+             size = CGSize(width: 200, height: 200)
+        }
+        
+        
+        
+//        parentLayer.frame = CGRect(origin: CGPoint(x: center.x - size.width/2, y: center.y - size.height/2), size: size)
+        
+        println("environmentSize: \(environmentSize)")
+        parentLayer.frame = CGRect(origin: CGPoint(x: environmentSize.width*0.0-(size.width/2),y: environmentSize.height*0.5-(size.height/2)), size: size)
+        
+        
         
         rightWing.frame = CGRect(x: size.width*xAxis, y: size.width*yAxis, width: size.width*0.6, height: size.height*0.6)
         leftWing.frame = CGRect(x: size.width*xAxis, y: size.width*yAxis, width: size.width*0.6, height: size.height*0.6)

@@ -61,30 +61,7 @@ class TFFairyDust {
         
         
         cell.lifetimeRange = 0.4
-        cell.velocityRange = 40
-        //        cell.scaleRange = 0.2
-        //        cell.scaleSpeed = 0.2
-        //        cell.greenRange = 0.5
-        //        cell.greenSpeed = 0.75
-        
-        
-        
-        
-        //        // cell 2 for sprinkel
-        //
-        //        let cell2 = CAEmitterCell()
-        //        cell.emitterCells = [cell2]
-        //        cell2.contents = im.CGImage
-        //        cell2.emissionRange = CGFloat(M_PI)
-        //        cell2.birthRate = 200
-        //        cell2.lifetime = 0.4
-        //        cell2.velocity = 200
-        //        cell2.scale = 0.2
-        //        cell2.beginTime = 1.5
-        //        cell2.duration = 0.3
-        
-        
-        
+        cell.velocityRange = 40    
         
         
         return cell

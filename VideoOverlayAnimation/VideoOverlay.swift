@@ -292,7 +292,7 @@ class SetVideoOrientationAndAnimation {
         
         // MARK: videoOverlay animation
         
-        applyVideoEffectsToComposition(videoComposition, size: videoComposition.renderSize, image: imageWithColor(UIColor.blueColor(), videoComposition.renderSize))
+        applyVideoEffectsToComposition(videoComposition, size: videoComposition.renderSize, image: imageWithColor(UIColor.blueColor(), videoComposition.renderSize), videoDuration: durationOfVideoInSec)
         
         
         
@@ -305,13 +305,15 @@ class SetVideoOrientationAndAnimation {
     
     
     
-    private class func applyVideoEffectsToComposition(composition:AVMutableVideoComposition, size:CGSize, image:UIImage){
+    private class func applyVideoEffectsToComposition(composition:AVMutableVideoComposition, size:CGSize, image:UIImage, videoDuration : Double){
         
        // applyVideoborder(composition, size: size, image: image)
         
        // applyVideoOverlayImage(composition, size: size, image: image)
         
-        applyVideoOverlayAnimation(composition, size: size, image: image)
+        
+        
+        applyVideoOverlayAnimation(composition, size: size, image: image, videoDuration: videoDuration)
 
         
     }
@@ -377,7 +379,7 @@ class SetVideoOrientationAndAnimation {
     
     // apply video overlay Animation
     
-    private class func applyVideoOverlayAnimation(composition:AVMutableVideoComposition, size:CGSize, image:UIImage){
+    private class func applyVideoOverlayAnimation(composition:AVMutableVideoComposition, size:CGSize, image:UIImage, videoDuration : Double){
         
         println("vodeo size: \(size)")
         
@@ -389,16 +391,8 @@ class SetVideoOrientationAndAnimation {
         
         
         // animation
-//        let basicAnimation = CABasicAnimation(keyPath: "transform.scale")
-//        basicAnimation.duration = 1
-//        basicAnimation.repeatCount = 100
-//        basicAnimation.autoreverses = true
-//        basicAnimation.toValue = 0.5
-//        basicAnimation.fromValue = 1.0
-//        basicAnimation.beginTime = AVCoreAnimationBeginTimeAtZero;
-//        overlayLayer.addAnimation(basicAnimation, forKey: "scale")
 
-        let fairy = Fairy.fairy(CGSize(width: 200, height: 200), center: CGPoint(x: 200, y: 300), fairyDustOn: true, useInAVFoundation: true, animationDuration: 10.0, environmentSize: size)
+        let fairy = Fairy.fairy(TFFairySize.Large, fairyColor: TFFairyColors.Pink, center: CGPoint(x: 200, y: 300), fairyDustOn: true, useInAVFoundation: true, animationDuration: videoDuration, environmentSize: size)
         
         overlayLayer.addSublayer(fairy)
         

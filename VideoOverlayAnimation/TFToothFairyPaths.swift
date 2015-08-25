@@ -64,19 +64,36 @@ class TFToothFairyPaths {
             CGPoint(x: size.width*0.0,y: size.height*0.45),
         ]
         let path = UIBezierPath()
-        path.moveToPoint(CGPoint(x: size.width*0.0,y: size.height*0.1))
-        path.addQuadCurveToPoint(pathPoints[1], controlPoint: controllPoints[0])
-        path.addQuadCurveToPoint(pathPoints[2], controlPoint: controllPoints[1])
-        path.addQuadCurveToPoint(pathPoints[3], controlPoint: controllPoints[2])
-        path.addQuadCurveToPoint(pathPoints[4], controlPoint: controllPoints[3])
-        
-        
-        //            path.addCurveToPoint(
-        //                CGPoint(x: size.width*0.8,y: size.height*0.2),
-        //                controlPoint1: CGPoint(x: size.width*2.0,y: size.height*1.2),
-        //                controlPoint2: CGPoint(x: -size.width*1.0,y: size.height*1.1))
-        
         path.lineJoinStyle = kCGLineJoinRound
+        path.moveToPoint(CGPoint(x: -size.width*0.5,y: -size.height*0.5))
+//        path.addQuadCurveToPoint(pathPoints[1], controlPoint: controllPoints[0])
+//        path.addQuadCurveToPoint(pathPoints[2], controlPoint: controllPoints[1])
+//        path.addQuadCurveToPoint(pathPoints[3], controlPoint: controllPoints[2])
+//        path.addQuadCurveToPoint(pathPoints[4], controlPoint: controllPoints[3])
+        
+        
+        
+        path.addCurveToPoint(
+            CGPoint(x: size.width*0.8,y: size.height*0.2),
+            controlPoint1: CGPoint(x: size.width*2.0,y: size.height*1.2),
+            controlPoint2: CGPoint(x: -size.width*1.0,y: size.height*1.1))
+        
+        if animationDuration > 10.0{
+            path.addCurveToPoint(
+                CGPoint(x: size.width*0.3,y: size.height*0.8),
+                controlPoint1: CGPoint(x: size.width*1.0,y: -size.height*0.3),
+                controlPoint2: CGPoint(x: -size.width*0.4,y: size.height*0.5))
+        }
+        if animationDuration > 20.0{
+            path.addCurveToPoint(
+                CGPoint(x: size.width*0.3,y: size.height*0.3),
+                controlPoint1: CGPoint(x: size.width*1.0,y: size.height*1.4),
+                controlPoint2: CGPoint(x: size.width*1.0,y: -size.height*0.4))
+        }
+
+        
+        // end point
+        path.addLineToPoint(CGPoint(x: size.width*0.0,y: size.height*0.5))
         
         
         
@@ -89,9 +106,11 @@ class TFToothFairyPaths {
         anim.path = path.CGPath
         
         //anim.rotationMode = kCAAnimationRotateAuto
-        anim.repeatCount = Float.infinity
-        anim.duration = animationDuration
+        //anim.repeatCount = Float.infinity
         anim.beginTime = AVCoreAnimationBeginTimeAtZero
+        if animationDuration > 5.0 {
+            anim.duration = animationDuration-2.0
+        }
         
         
         // we add the animation to the squares 'layer' property
