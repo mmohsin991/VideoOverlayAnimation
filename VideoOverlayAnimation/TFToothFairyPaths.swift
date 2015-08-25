@@ -64,7 +64,8 @@ class TFToothFairyPaths {
             CGPoint(x: size.width*0.0,y: size.height*0.45),
         ]
         let path = UIBezierPath()
-        path.lineJoinStyle = kCGLineJoinRound
+        path.lineJoinStyle = kCGLineJoinBevel
+        
 //        path.moveToPoint(CGPoint(x: -size.width*0.5,y: -size.height*0.5))
 //        path.addQuadCurveToPoint(pathPoints[1], controlPoint: controllPoints[0])
 //        path.addQuadCurveToPoint(pathPoints[2], controlPoint: controllPoints[1])
@@ -72,29 +73,67 @@ class TFToothFairyPaths {
 //        path.addQuadCurveToPoint(pathPoints[4], controlPoint: controllPoints[3])
         
         if animationDuration < 15.0{
+//            path.moveToPoint(CGPoint(x: size.width*0.0,y: size.height*0.1))
+//            path.addCurveToPoint(
+//                CGPoint(x: size.width*0.2,y: size.height*0.5),
+//                controlPoint1: CGPoint(x: size.width*1.5,y: size.height*0.0),
+//                controlPoint2: CGPoint(x: size.width*0.5,y: size.height*1.5))
+//            // end point
+//            path.addLineToPoint(CGPoint(x: size.width*0.2,y: size.height*0.5))
+            
             path.moveToPoint(CGPoint(x: size.width*0.0,y: size.height*0.1))
-            path.addCurveToPoint(
-                CGPoint(x: size.width*0.2,y: size.height*0.5),
-                controlPoint1: CGPoint(x: size.width*1.5,y: size.height*0.0),
-                controlPoint2: CGPoint(x: size.width*0.5,y: size.height*1.5))
-            // end point
-            path.addLineToPoint(CGPoint(x: size.width*0.2,y: size.height*0.5))
+            path.addQuadCurveToPoint(
+                CGPoint(x: size.width*0.8,y: size.height*0.3),
+                controlPoint: CGPoint(x: size.width*0.5,y: size.height*0.0))
+            path.addQuadCurveToPoint(
+                CGPoint(x: size.width*0.5,y: size.height*0.9),
+                controlPoint: CGPoint(x: size.width*1.2,y: size.height*0.7))
+            
+            path.addCurveToPoint(CGPoint(x: size.width*0.1,y: size.height*0.5),
+                controlPoint1: CGPoint(x: size.width*0.1,y: size.height*1.0),
+                controlPoint2: CGPoint(x: -size.width*0.1,y: size.height*0.5))
+            
+            path.addLineToPoint(CGPoint(x: size.width*0.1,y: size.height*0.5))
 
         }
             
         else if animationDuration < 30.0{
-            path.moveToPoint(CGPoint(x: size.width*0.0,y: size.height*0.1))
-            path.addCurveToPoint(
-                CGPoint(x: size.width*0.8,y: size.height*0.2),
-                controlPoint1: CGPoint(x: size.width*2.0,y: size.height*1.2),
-                controlPoint2: CGPoint(x: -size.width*1.0,y: size.height*1.1))
+//            path.moveToPoint(CGPoint(x: size.width*0.0,y: size.height*0.1))
+//            path.addCurveToPoint(
+//                CGPoint(x: size.width*0.8,y: size.height*0.2),
+//                controlPoint1: CGPoint(x: size.width*2.0,y: size.height*1.2),
+//                controlPoint2: CGPoint(x: -size.width*1.0,y: size.height*1.1))
+//            
+//            path.addCurveToPoint(
+//                CGPoint(x: size.width*0.2,y: size.height*0.5),
+//                controlPoint1: CGPoint(x: size.width*1.0,y: size.height*1.2),
+//                controlPoint2: CGPoint(x: size.width*0.5,y: size.height*1.1))
+//            // end point
+//            path.addLineToPoint(CGPoint(x: size.width*0.2,y: size.height*0.5))
             
-            path.addCurveToPoint(
-                CGPoint(x: size.width*0.2,y: size.height*0.5),
-                controlPoint1: CGPoint(x: size.width*1.0,y: size.height*1.2),
-                controlPoint2: CGPoint(x: size.width*0.5,y: size.height*1.1))
-            // end point
-            path.addLineToPoint(CGPoint(x: size.width*0.2,y: size.height*0.5))
+            path.moveToPoint(CGPoint(x: size.width*0.0,y: size.height*0.1))
+            path.addQuadCurveToPoint(
+                CGPoint(x: size.width*0.8,y: size.height*0.3),
+                controlPoint: CGPoint(x: size.width*0.5,y: size.height*0.0))
+            path.addQuadCurveToPoint(
+                CGPoint(x: size.width*0.5,y: size.height*0.9),
+                controlPoint: CGPoint(x: size.width*1.2,y: size.height*0.7))
+            
+            path.addCurveToPoint(CGPoint(x: size.width*0.03,y: size.height*0.4),
+                controlPoint1: CGPoint(x: size.width*0.1,y: size.height*1.0),
+                controlPoint2: CGPoint(x: size.width*0.0,y: size.height*0.5))
+            
+            path.addCurveToPoint(CGPoint(x: size.width*0.8,y: size.height*0.7),
+                controlPoint1: CGPoint(x: size.width*0.2,y: -size.height*0.2),
+                controlPoint2: CGPoint(x: size.width*0.7,y: size.height*0.3))
+            
+            
+            path.addCurveToPoint(CGPoint(x: size.width*0.1,y: size.height*0.5),
+                controlPoint1: CGPoint(x: size.width*0.9,y: size.height*1.4),
+                controlPoint2: CGPoint(x: -size.width*0.2,y: size.height*0.5))
+            
+            path.addLineToPoint(CGPoint(x: size.width*0.1,y: size.height*0.5))
+
 
         }
         
@@ -130,7 +169,7 @@ class TFToothFairyPaths {
         // set the animations path to our bezier curve
         anim.path = path.CGPath
         
-        //anim.rotationMode = kCAAnimationRotateAuto
+        anim.rotationMode = kCAAnimationRotateAuto
         anim.repeatCount = Float.infinity
         anim.beginTime = AVCoreAnimationBeginTimeAtZero
         anim.duration = animationDuration

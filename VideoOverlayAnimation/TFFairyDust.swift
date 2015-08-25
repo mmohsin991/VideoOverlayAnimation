@@ -52,7 +52,7 @@ class TFFairyDust {
         cell.contents = image.CGImage
         
         cell.birthRate = 40
-        cell.lifetime = 1.0
+        cell.lifetime = 1.5
         cell.velocity = -120
         cell.emissionRange = CGFloat(M_PI)/6.0
         
@@ -60,7 +60,7 @@ class TFFairyDust {
         cell.yAcceleration = -30
         
         
-        cell.lifetimeRange = 0.4
+        cell.lifetimeRange = 0.5
         cell.velocityRange = 40    
         
         
@@ -76,7 +76,7 @@ class TFFairyDust {
         cell.contents = image!.CGImage
         
         cell.birthRate = 10
-        cell.lifetime = 1.0
+        cell.lifetime = 1.5
         cell.velocity = -120
         cell.emissionRange = CGFloat(M_PI)/6.0
         
@@ -89,7 +89,7 @@ class TFFairyDust {
         cell.xAcceleration = -20
         cell.yAcceleration = -30
         
-        cell.lifetimeRange = 0.4
+        cell.lifetimeRange = 0.5
         cell.velocityRange = 40
         //        cell.scaleRange = 0.2
         //        cell.scaleSpeed = 0.2
