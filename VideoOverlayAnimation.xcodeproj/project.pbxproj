@@ -22,10 +22,10 @@
 		42165CF81B835BE1004873D9 /* AudioVideoMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42165CF71B835BE1004873D9 /* AudioVideoMerge.swift */; };
 		4233470D1B85D38700D3293D /* FairyAnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4233470C1B85D38700D3293D /* FairyAnimationVC.swift */; };
 		4233470F1B860E6500D3293D /* glow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4233470E1B860E6500D3293D /* glow.png */; };
-		423347111B86218600D3293D /* TFFairyDust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423347101B86218600D3293D /* TFFairyDust.swift */; };
 		423347131B86451E00D3293D /* Fairy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423347121B86451E00D3293D /* Fairy.swift */; };
 		423347161B8645AA00D3293D /* fairyBody.png in Resources */ = {isa = PBXBuildFile; fileRef = 423347141B8645AA00D3293D /* fairyBody.png */; };
 		423347171B8645AA00D3293D /* fairyWing.png in Resources */ = {isa = PBXBuildFile; fileRef = 423347151B8645AA00D3293D /* fairyWing.png */; };
+		426D311E1BA1C4E500085C77 /* TFFairyDust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426D311D1BA1C4E500085C77 /* TFFairyDust.swift */; };
 		42C0CD761B8C62EA00C1EFCC /* fairyLeg1Pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C0CD6E1B8C62EA00C1EFCC /* fairyLeg1Pink.png */; };
 		42C0CD771B8C62EA00C1EFCC /* fairyLeg1Yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C0CD6F1B8C62EA00C1EFCC /* fairyLeg1Yellow.png */; };
 		42C0CD781B8C62EA00C1EFCC /* fairyLeg2Pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C0CD701B8C62EA00C1EFCC /* fairyLeg2Pink.png */; };
@@ -70,10 +70,10 @@
 		42165CF71B835BE1004873D9 /* AudioVideoMerge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioVideoMerge.swift; sourceTree = "<group>"; };
 		4233470C1B85D38700D3293D /* FairyAnimationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FairyAnimationVC.swift; sourceTree = "<group>"; };
 		4233470E1B860E6500D3293D /* glow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glow.png; sourceTree = "<group>"; };
-		423347101B86218600D3293D /* TFFairyDust.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFFairyDust.swift; sourceTree = "<group>"; };
 		423347121B86451E00D3293D /* Fairy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fairy.swift; sourceTree = "<group>"; };
 		423347141B8645AA00D3293D /* fairyBody.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyBody.png; sourceTree = "<group>"; };
 		423347151B8645AA00D3293D /* fairyWing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyWing.png; sourceTree = "<group>"; };
+		426D311D1BA1C4E500085C77 /* TFFairyDust.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFFairyDust.swift; sourceTree = "<group>"; };
 		42C0CD6E1B8C62EA00C1EFCC /* fairyLeg1Pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyLeg1Pink.png; sourceTree = "<group>"; };
 		42C0CD6F1B8C62EA00C1EFCC /* fairyLeg1Yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyLeg1Yellow.png; sourceTree = "<group>"; };
 		42C0CD701B8C62EA00C1EFCC /* fairyLeg2Pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyLeg2Pink.png; sourceTree = "<group>"; };
@@ -194,9 +194,9 @@
 			isa = PBXGroup;
 			children = (
 				42165CF71B835BE1004873D9 /* AudioVideoMerge.swift */,
-				421229CC1B84CA8600A5EC3E /* VideoOverlay.swift */,
 				421229CA1B84B31100A5EC3E /* Functions.swift */,
-				423347101B86218600D3293D /* TFFairyDust.swift */,
+				421229CC1B84CA8600A5EC3E /* VideoOverlay.swift */,
+				426D311D1BA1C4E500085C77 /* TFFairyDust.swift */,
 				423347121B86451E00D3293D /* Fairy.swift */,
 				42E904F31B8B73080062557C /* TFToothFairyPaths.swift */,
 			);
@@ -326,9 +326,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				423347111B86218600D3293D /* TFFairyDust.swift in Sources */,
 				423347131B86451E00D3293D /* Fairy.swift in Sources */,
 				42165CD81B834D69004873D9 /* ViewController.swift in Sources */,
+				426D311E1BA1C4E500085C77 /* TFFairyDust.swift in Sources */,
 				42165CD61B834D69004873D9 /* AppDelegate.swift in Sources */,
 				42165CF81B835BE1004873D9 /* AudioVideoMerge.swift in Sources */,
 				42E904F41B8B73080062557C /* TFToothFairyPaths.swift in Sources */,

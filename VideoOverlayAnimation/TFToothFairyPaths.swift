@@ -36,7 +36,8 @@ class TFToothFairyPaths {
     }
     
     
-    class func applyPath2ToLayer(layer : CALayer, animationDuration: Double, size: CGSize){
+    
+    class func getPathType2(animationDuration: Double, size: CGSize) -> CGPathRef{
         
         
         let path = UIBezierPath()
@@ -117,27 +118,8 @@ class TFToothFairyPaths {
         
         
         
+        return path.CGPath
         
-        
-        
-        // create a new CAKeyframeAnimation that animates the objects position
-        let anim = CAKeyframeAnimation(keyPath: "position")
-        
-        // set the animations path to our bezier curve
-        anim.path = path.CGPath
-        
-        anim.rotationMode = kCAAnimationRotateAuto
-        anim.repeatCount = Float.infinity
-        anim.beginTime = AVCoreAnimationBeginTimeAtZero
-        anim.duration = animationDuration
-        
-        //        if animationDuration > 5.0 {
-        //            anim.duration = animationDuration-2.0
-        //        }
-        
-        
-        // we add the animation to the squares 'layer' property
-        layer.addAnimation(anim, forKey: nil)
         
     }
 }

@@ -13,21 +13,23 @@ import AVFoundation
 
 class TFFairyDust {
     
-    class func fairyDust(emittingPoint : CGPoint) -> CAEmitterLayer{
+    class func fairyDust(emittingPath : CGPath, frame: CGRect) -> CAEmitterLayer{
         
         
         var emit = CAEmitterLayer()
-        emit.frame.origin = emittingPoint
-        emit.emitterPosition = CGPoint(x: 0, y: 0)
+        emit.frame.size = frame.size
+        emit.frame.origin = frame.origin
+        emit.emitterPosition = frame.origin
         emit.emitterShape = kCAEmitterLayerPoint
         emit.emitterMode = kCAEmitterLayerPoints
         
-        emit.lifetime = 2.0
+        emit.lifetime = 1.5
         
         let cell = makeEmitterCellSmall()
         let cellGlow = makeEmitterCellGlow()
         
         emit.emitterCells = [cell,cellGlow]
+        
         
         return emit
         
@@ -50,15 +52,11 @@ class TFFairyDust {
         let cell = CAEmitterCell()
         cell.contents = image.CGImage
         
-        cell.birthRate = 40
+        cell.birthRate = 30
         cell.lifetime = 1.5
-        cell.velocity = -120
-        cell.emissionRange = CGFloat(M_PI)/6.0
-        
-        cell.xAcceleration = -20
-        cell.yAcceleration = -30
-        
-        
+        cell.velocity = 80
+        cell.emissionRange = CGFloat(M_PI)
+
         cell.lifetimeRange = 0.5
         cell.velocityRange = 40
         
@@ -76,17 +74,14 @@ class TFFairyDust {
         
         cell.birthRate = 10
         cell.lifetime = 1.5
-        cell.velocity = -120
-        cell.emissionRange = CGFloat(M_PI)/6.0
+        cell.velocity = 80
+        cell.emissionRange = CGFloat(M_PI)
         
         cell.scale = 0.3
         cell.scaleRange = 1.0
         cell.scaleSpeed = 0.3
-        
         cell.spin = 0.7
-        
-        cell.xAcceleration = -20
-        cell.yAcceleration = -30
+
         
         cell.lifetimeRange = 0.5
         cell.velocityRange = 40

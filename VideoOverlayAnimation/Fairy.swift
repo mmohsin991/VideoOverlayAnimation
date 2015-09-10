@@ -109,11 +109,11 @@ class Fairy {
         
         
         
-        //        fairyLayer.frame = CGRect(origin: CGPoint(x: center.x - size.width/2, y: center.y - size.height/2), size: size)
+
         
         println("environmentSize: \(parentLayer.frame.size)")
-        fairyLayer.frame = CGRect(origin: CGPoint(x: parentLayer.frame.size.width*0.0-(size.width/2),y: parentLayer.frame.size.height*0.5-(size.height/2)), size: size)
-        
+//        fairyLayer.frame = CGRect(origin: CGPoint(x: parentLayer.frame.size.width*0.0-(size.width/2),y: parentLayer.frame.size.height*0.5-(size.height/2)), size: size)
+        fairyLayer.frame = CGRect(origin: parentLayer.frame.origin, size: size)
         
         
         rightWing.frame = CGRect(x: size.width*xAxis, y: size.width*yAxis, width: size.width*0.6, height: size.height*0.6)
@@ -235,11 +235,32 @@ class Fairy {
         
         //MARK: fairy dust
         if fairyDustOn{
-            let dustEmittingPoint = CGPoint(x: size.width/1.4, y: size.height/2)
-            let fairyDust = TFFairyDust.fairyDust(dustEmittingPoint)
-            //fairyDust.transform = CATransform3DMakeScale(0.5, 0.5, 1)
-            //fairyDust.scale = 2.0
+            
+            let fairyDustPath = TFToothFairyPaths.getPathType2(animationDuration, size: parentLayer.frame.size)
+
+            // MARK: fairy dust path animation
+
+            let fairyDust = TFFairyDust.fairyDust(fairyDustPath, frame: parentLayer.frame)
+            
+//            fairyDust.transform = CATransform3DMakeScale(0.5, 0.5, 1)
+//            fairyDust.scale = 2.0
+
+            // create a new CAKeyframeAnimation that animates the objects position
+            let fairyDustAnimation = CAKeyframeAnimation(keyPath: "emitterPosition")
+            
+            // set the animations path to our bezier curve
+            fairyDustAnimation.path = fairyDustPath
+            
+            fairyDustAnimation.repeatCount = Float.infinity
+            fairyDustAnimation.beginTime = AVCoreAnimationBeginTimeAtZero
+            fairyDustAnimation.duration = animationDuration
+            
+            // we add the animation to the squares 'layer' property
+            fairyDust.addAnimation(fairyDustAnimation, forKey: nil)
+            
+            
             parentLayer.addSublayer(fairyDust)
+
         }
         
         
@@ -272,9 +293,24 @@ class Fairy {
         
         
         
-        // MARK: animation path
+        // MARK: fairy path animation
+        let fairyPath = TFToothFairyPaths.getPathType2(animationDuration, size: parentLayer.frame.size)
         
-        TFToothFairyPaths.applyPath2ToLayer(fairyLayer, animationDuration: animationDuration, size: parentLayer.frame.size)
+        // create a new CAKeyframeAnimation that animates the objects position
+        let fairyPathAnimation = CAKeyframeAnimation(keyPath: "position")
+        
+        // set the animations path to our bezier curve
+        fairyPathAnimation.path = fairyPath
+        
+        fairyPathAnimation.rotationMode = kCAAnimationRotateAuto
+        fairyPathAnimation.repeatCount = Float.infinity
+        fairyPathAnimation.beginTime = AVCoreAnimationBeginTimeAtZero
+        fairyPathAnimation.duration = animationDuration
+        
+        // we add the animation to the squares 'layer' property
+        fairyLayer.addAnimation(fairyPathAnimation, forKey: nil)
+        
+
         
         parentLayer.addSublayer(fairyLayer)
         
