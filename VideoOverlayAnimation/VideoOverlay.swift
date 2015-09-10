@@ -392,9 +392,8 @@ class SetVideoOrientationAndAnimation {
         
         // animation
 
-        let fairy = Fairy.fairy(TFFairySize.Large, fairyColor: TFFairyColors.Pink, center: CGPoint(x: 200, y: 300), fairyDustOn: true, useInAVFoundation: true, animationDuration: videoDuration, environmentSize: size)
+        Fairy.fairy(TFFairySize.Small, fairyColor: TFFairyColors.Pink, center: CGPoint(x: 200, y: 300), fairyDustOn: true, useInAVFoundation: false, animationDuration: 22.0,  parentLayer: overlayLayer)
         
-        overlayLayer.addSublayer(fairy)
         
         var videoLayer = CALayer()
         videoLayer.frame = CGRectMake(0, 0, size.width, size.height)

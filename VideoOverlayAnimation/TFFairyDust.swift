@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 
+
+
 class TFFairyDust {
     
     class func fairyDust(emittingPoint : CGPoint) -> CAEmitterLayer{
@@ -30,9 +32,6 @@ class TFFairyDust {
         return emit
         
     }
-    
-    
-    
     
     
     private class func makeEmitterCellSmall() -> CAEmitterCell{
@@ -61,7 +60,7 @@ class TFFairyDust {
         
         
         cell.lifetimeRange = 0.5
-        cell.velocityRange = 40    
+        cell.velocityRange = 40
         
         
         return cell
@@ -98,7 +97,7 @@ class TFFairyDust {
         return cell
     }
     
-
+    
     
 }
 
