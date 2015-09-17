@@ -236,7 +236,7 @@ class Fairy {
         //MARK: fairy dust
         if fairyDustOn{
             
-            let fairyDustPath = TFToothFairyPaths.getPathType2(animationDuration, size: parentLayer.frame.size)
+            let fairyDustPath = TFToothFairyPaths.getPathType2(parentLayer.frame.size)
 
             // MARK: fairy dust path animation
 
@@ -253,10 +253,36 @@ class Fairy {
             
             fairyDustAnimation.repeatCount = Float.infinity
             fairyDustAnimation.beginTime = AVCoreAnimationBeginTimeAtZero
-            fairyDustAnimation.duration = animationDuration
-            
+            fairyDustAnimation.duration = 12
             // we add the animation to the squares 'layer' property
-            fairyDust.addAnimation(fairyDustAnimation, forKey: nil)
+            
+            
+            
+            
+            let fairyLifeAnimation = CABasicAnimation(keyPath: "lifetime")
+            
+            // set the animations path to our bezier curve
+            fairyLifeAnimation.toValue = 0.0
+            fairyLifeAnimation.beginTime = 10.0
+            fairyLifeAnimation.duration = 1
+
+            
+            let fadeAnimation = CAKeyframeAnimation(keyPath: "opacity")
+            fadeAnimation.values = [1.0,-1.0]
+            fadeAnimation.beginTime = 11.0
+            fadeAnimation.duration = 1
+
+            
+            
+            
+            let groupAnimation = CAAnimationGroup()
+            groupAnimation.animations = [fairyDustAnimation, fadeAnimation, fairyLifeAnimation]
+            groupAnimation.repeatCount = Float.infinity
+            groupAnimation.beginTime = AVCoreAnimationBeginTimeAtZero
+            groupAnimation.duration = 12
+          
+            
+            fairyDust.addAnimation(groupAnimation, forKey: nil)
             
             
             parentLayer.addSublayer(fairyDust)
@@ -294,7 +320,7 @@ class Fairy {
         
         
         // MARK: fairy path animation
-        let fairyPath = TFToothFairyPaths.getPathType2(animationDuration, size: parentLayer.frame.size)
+        let fairyPath = TFToothFairyPaths.getPathType2(parentLayer.frame.size)
         
         // create a new CAKeyframeAnimation that animates the objects position
         let fairyPathAnimation = CAKeyframeAnimation(keyPath: "position")
@@ -305,10 +331,27 @@ class Fairy {
         fairyPathAnimation.rotationMode = kCAAnimationRotateAuto
         fairyPathAnimation.repeatCount = Float.infinity
         fairyPathAnimation.beginTime = AVCoreAnimationBeginTimeAtZero
-        fairyPathAnimation.duration = animationDuration
+        fairyPathAnimation.duration = 12
+        
+        
+        let fadeAnimation = CAKeyframeAnimation(keyPath: "opacity")
+        fadeAnimation.values = [1.0,0.0]
+        fadeAnimation.beginTime = 10.0
+        fadeAnimation.duration = 2.0
+
+        
+        
+        let groupAnimation = CAAnimationGroup()
+        groupAnimation.animations = [fairyPathAnimation, fadeAnimation]
+        groupAnimation.repeatCount = Float.infinity
+        groupAnimation.beginTime = AVCoreAnimationBeginTimeAtZero
+        groupAnimation.duration = 12
+        
+        
         
         // we add the animation to the squares 'layer' property
-        fairyLayer.addAnimation(fairyPathAnimation, forKey: nil)
+        fairyLayer.addAnimation(groupAnimation, forKey: nil)
+        
         
 
         

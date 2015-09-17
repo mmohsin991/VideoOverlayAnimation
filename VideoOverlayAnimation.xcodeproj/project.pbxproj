@@ -25,6 +25,7 @@
 		423347131B86451E00D3293D /* Fairy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423347121B86451E00D3293D /* Fairy.swift */; };
 		423347161B8645AA00D3293D /* fairyBody.png in Resources */ = {isa = PBXBuildFile; fileRef = 423347141B8645AA00D3293D /* fairyBody.png */; };
 		423347171B8645AA00D3293D /* fairyWing.png in Resources */ = {isa = PBXBuildFile; fileRef = 423347151B8645AA00D3293D /* fairyWing.png */; };
+		425415FA1BAAE9F20082DB5A /* TFAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425415F91BAAE9F20082DB5A /* TFAnimation.swift */; };
 		426D311E1BA1C4E500085C77 /* TFFairyDust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426D311D1BA1C4E500085C77 /* TFFairyDust.swift */; };
 		42C0CD761B8C62EA00C1EFCC /* fairyLeg1Pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C0CD6E1B8C62EA00C1EFCC /* fairyLeg1Pink.png */; };
 		42C0CD771B8C62EA00C1EFCC /* fairyLeg1Yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C0CD6F1B8C62EA00C1EFCC /* fairyLeg1Yellow.png */; };
@@ -73,6 +74,7 @@
 		423347121B86451E00D3293D /* Fairy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fairy.swift; sourceTree = "<group>"; };
 		423347141B8645AA00D3293D /* fairyBody.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyBody.png; sourceTree = "<group>"; };
 		423347151B8645AA00D3293D /* fairyWing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyWing.png; sourceTree = "<group>"; };
+		425415F91BAAE9F20082DB5A /* TFAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFAnimation.swift; sourceTree = "<group>"; };
 		426D311D1BA1C4E500085C77 /* TFFairyDust.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFFairyDust.swift; sourceTree = "<group>"; };
 		42C0CD6E1B8C62EA00C1EFCC /* fairyLeg1Pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyLeg1Pink.png; sourceTree = "<group>"; };
 		42C0CD6F1B8C62EA00C1EFCC /* fairyLeg1Yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyLeg1Yellow.png; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				426D311D1BA1C4E500085C77 /* TFFairyDust.swift */,
 				423347121B86451E00D3293D /* Fairy.swift */,
 				42E904F31B8B73080062557C /* TFToothFairyPaths.swift */,
+				425415F91BAAE9F20082DB5A /* TFAnimation.swift */,
 			);
 			name = "APIs and Functions";
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				42165CD61B834D69004873D9 /* AppDelegate.swift in Sources */,
 				42165CF81B835BE1004873D9 /* AudioVideoMerge.swift in Sources */,
 				42E904F41B8B73080062557C /* TFToothFairyPaths.swift in Sources */,
+				425415FA1BAAE9F20082DB5A /* TFAnimation.swift in Sources */,
 				4233470D1B85D38700D3293D /* FairyAnimationVC.swift in Sources */,
 				421229CD1B84CA8600A5EC3E /* VideoOverlay.swift in Sources */,
 				421229CB1B84B31100A5EC3E /* Functions.swift in Sources */,

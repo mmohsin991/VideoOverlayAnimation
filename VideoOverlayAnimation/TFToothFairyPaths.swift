@@ -37,88 +37,93 @@ class TFToothFairyPaths {
     
     
     
-    class func getPathType2(animationDuration: Double, size: CGSize) -> CGPathRef{
+    class func getPathType2(size: CGSize) -> CGPathRef{
         
         
         let path = UIBezierPath()
         path.lineJoinStyle = kCGLineJoinRound
         
-        if animationDuration < 15.0{
-            
-            path.moveToPoint(CGPoint(x: size.width*0.0,y: size.height*0.1))
-            path.addQuadCurveToPoint(
-                CGPoint(x: size.width*0.8,y: size.height*0.3),
-                controlPoint: CGPoint(x: size.width*0.5,y: size.height*0.0))
-            path.addQuadCurveToPoint(
-                CGPoint(x: size.width*0.5,y: size.height*0.9),
-                controlPoint: CGPoint(x: size.width*1.2,y: size.height*0.7))
-            
-            path.addCurveToPoint(CGPoint(x: size.width*0.2,y: size.height*0.5),
-                controlPoint1: CGPoint(x: size.width*0.1,y: size.height*1.0),
-                controlPoint2: CGPoint(x: -size.width*0.1,y: size.height*0.5))
-            
-            path.addLineToPoint(CGPoint(x: size.width*0.2,y: size.height*0.5))
-            
-        }
-            
-        else if animationDuration < 30.0{
-            
-            path.moveToPoint(CGPoint(x: size.width*0.0,y: size.height*0.1))
-            path.addQuadCurveToPoint(
-                CGPoint(x: size.width*0.9,y: size.height*0.65),
-                controlPoint: CGPoint(x: size.width*0.9,y: size.height*0.0))
-            
-            path.addCurveToPoint(CGPoint(x: size.width*0.1,y: size.height*0.35),
-                controlPoint1: CGPoint(x: size.width*0.9,y: size.height*1.0),
-                controlPoint2: CGPoint(x: size.width*0.0,y: size.height*1.1))
-            
-            path.addCurveToPoint(CGPoint(x: size.width*0.81,y: size.height*0.6),
-                controlPoint1: CGPoint(x: size.width*0.2,y: -size.height*0.2),
-                controlPoint2: CGPoint(x: size.width*0.8,y: size.height*0.1))
-            
-            path.addCurveToPoint(CGPoint(x: size.width*0.2,y: size.height*0.5),
-                controlPoint1: CGPoint(x: size.width*0.8,y: size.height*1.2),
-                controlPoint2: CGPoint(x: -size.width*0.2,y: size.height*0.5))
-            
-            path.addLineToPoint(CGPoint(x: size.width*0.2,y: size.height*0.5))
-            
-        }
-            
-        else if animationDuration > 30.0{
-            
-            path.moveToPoint(CGPoint(x: size.width*0.0,y: size.height*0.1))
-            path.addQuadCurveToPoint(
-                CGPoint(x: size.width*0.9,y: size.height*0.65),
-                controlPoint: CGPoint(x: size.width*0.9,y: size.height*0.0))
-            
-            path.addCurveToPoint(CGPoint(x: size.width*0.1,y: size.height*0.35),
-                controlPoint1: CGPoint(x: size.width*0.9,y: size.height*1.0),
-                controlPoint2: CGPoint(x: size.width*0.0,y: size.height*1.1))
-            
-            path.addCurveToPoint(CGPoint(x: size.width*0.81,y: size.height*0.6),
-                controlPoint1: CGPoint(x: size.width*0.2,y: -size.height*0.2),
-                controlPoint2: CGPoint(x: size.width*0.8,y: size.height*0.1))
-            
-            path.addCurveToPoint(CGPoint(x: size.width*0.1,y: size.height*0.45),
-                controlPoint1: CGPoint(x: size.width*0.8,y: size.height*1.2),
-                controlPoint2: CGPoint(x: -size.width*0.2,y: size.height*0.8))
-            
-            path.addCurveToPoint(CGPoint(x: size.width*0.85,y: size.height*0.55),
-                controlPoint1: CGPoint(x: size.width*0.5,y: size.height*0.0),
-                controlPoint2: CGPoint(x: size.width*1.0,y: size.height*0.0))
-            
-            path.addCurveToPoint(CGPoint(x: size.width*0.2,y: size.height*0.5),
-                controlPoint1: CGPoint(x: size.width*0.5,y: size.height*1.5),
-                controlPoint2: CGPoint(x: -size.width*0.1,y: size.height*0.5))
-            
-            path.addLineToPoint(CGPoint(x: size.width*0.2,y: size.height*0.5))
-            
-            
-        }
+//        if animationDuration < 15.0{
         
+        path.moveToPoint(CGPoint(x: -size.width*0.2,y: size.height*0.5))
+        
+        path.addCurveToPoint(CGPoint(x: size.width*0.85,y: size.height*0.75),
+            controlPoint1: CGPoint(x: size.width*0.2,y: size.height*0.5),
+            controlPoint2: CGPoint(x: size.width*0.9,y: size.height*0.5))
+        
+        path.addCurveToPoint(CGPoint(x: size.width*0.15,y: size.height*0.75),
+            controlPoint1: CGPoint(x: size.width*0.8,y: size.height*0.9),
+            controlPoint2: CGPoint(x: size.width*0.2,y: size.height*0.9))
+        
+        path.addCurveToPoint(CGPoint(x: size.width*0.85,y: size.height*0.5),
+            controlPoint1: CGPoint(x: size.width*0.1,y: size.height*0.5),
+            controlPoint2: CGPoint(x: size.width*0.9,y: size.height*0.5))
         
         
         return path.CGPath
+
+        
+        
+        
+//        }
+            
+//        else if animationDuration < 30.0{
+//            
+//            path.moveToPoint(CGPoint(x: size.width*0.0,y: size.height*0.1))
+//            path.addQuadCurveToPoint(
+//                CGPoint(x: size.width*0.9,y: size.height*0.65),
+//                controlPoint: CGPoint(x: size.width*0.9,y: size.height*0.0))
+//            
+//            path.addCurveToPoint(CGPoint(x: size.width*0.1,y: size.height*0.35),
+//                controlPoint1: CGPoint(x: size.width*0.9,y: size.height*1.0),
+//                controlPoint2: CGPoint(x: size.width*0.0,y: size.height*1.1))
+//            
+//            path.addCurveToPoint(CGPoint(x: size.width*0.81,y: size.height*0.6),
+//                controlPoint1: CGPoint(x: size.width*0.2,y: -size.height*0.2),
+//                controlPoint2: CGPoint(x: size.width*0.8,y: size.height*0.1))
+//            
+//            path.addCurveToPoint(CGPoint(x: size.width*0.2,y: size.height*0.5),
+//                controlPoint1: CGPoint(x: size.width*0.8,y: size.height*1.2),
+//                controlPoint2: CGPoint(x: -size.width*0.2,y: size.height*0.5))
+//            
+//            path.addLineToPoint(CGPoint(x: size.width*0.2,y: size.height*0.5))
+//            
+//        }
+//            
+//        else if animationDuration > 30.0{
+//            
+//            path.moveToPoint(CGPoint(x: size.width*0.0,y: size.height*0.1))
+//            path.addQuadCurveToPoint(
+//                CGPoint(x: size.width*0.9,y: size.height*0.65),
+//                controlPoint: CGPoint(x: size.width*0.9,y: size.height*0.0))
+//            
+//            path.addCurveToPoint(CGPoint(x: size.width*0.1,y: size.height*0.35),
+//                controlPoint1: CGPoint(x: size.width*0.9,y: size.height*1.0),
+//                controlPoint2: CGPoint(x: size.width*0.0,y: size.height*1.1))
+//            
+//            path.addCurveToPoint(CGPoint(x: size.width*0.81,y: size.height*0.6),
+//                controlPoint1: CGPoint(x: size.width*0.2,y: -size.height*0.2),
+//                controlPoint2: CGPoint(x: size.width*0.8,y: size.height*0.1))
+//            
+//            path.addCurveToPoint(CGPoint(x: size.width*0.1,y: size.height*0.45),
+//                controlPoint1: CGPoint(x: size.width*0.8,y: size.height*1.2),
+//                controlPoint2: CGPoint(x: -size.width*0.2,y: size.height*0.8))
+//            
+//            path.addCurveToPoint(CGPoint(x: size.width*0.85,y: size.height*0.55),
+//                controlPoint1: CGPoint(x: size.width*0.5,y: size.height*0.0),
+//                controlPoint2: CGPoint(x: size.width*1.0,y: size.height*0.0))
+//            
+//            path.addCurveToPoint(CGPoint(x: size.width*0.2,y: size.height*0.5),
+//                controlPoint1: CGPoint(x: size.width*0.5,y: size.height*1.5),
+//                controlPoint2: CGPoint(x: -size.width*0.1,y: size.height*0.5))
+//            
+//            path.addLineToPoint(CGPoint(x: size.width*0.2,y: size.height*0.5))
+//            
+//            
+//        }
+//        
+        
+        
         
         
     }
