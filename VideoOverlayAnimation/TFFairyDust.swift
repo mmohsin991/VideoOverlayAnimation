@@ -13,6 +13,30 @@ import AVFoundation
 
 class TFFairyDust {
     
+    
+    
+    class func glowEmitter(emittingPath : CGPath, frame: CGRect) -> CAEmitterLayer{
+        
+        
+        var emit = CAEmitterLayer()
+        emit.frame.size = frame.size
+        emit.frame.origin = frame.origin
+        emit.emitterPosition = frame.origin
+        emit.emitterShape = kCAEmitterLayerPoint
+        emit.emitterMode = kCAEmitterLayerPoints
+        
+        emit.lifetime = 1.5
+        
+        let cell = makeEmitterCellSmall()
+        let cellGlow = makeEmitterCellGlow()
+        
+        emit.emitterCells = [cell,cellGlow]
+        
+        
+        return emit
+        
+    }
+    
     class func fairyDust(emittingPath : CGPath, frame: CGRect) -> CAEmitterLayer{
         
         

@@ -41,7 +41,7 @@ class TFToothFairyPaths {
         
         
         let path = UIBezierPath()
-        path.lineJoinStyle = kCGLineJoinRound
+        path.lineJoinStyle = kCGLineJoinBevel
         
 //        if animationDuration < 15.0{
         
@@ -59,6 +59,14 @@ class TFToothFairyPaths {
             controlPoint1: CGPoint(x: size.width*0.1,y: size.height*0.5),
             controlPoint2: CGPoint(x: size.width*0.9,y: size.height*0.5))
         
+
+//        path.addCurveToPoint(CGPoint(x: size.width*0.95,y: size.height*0.5),
+//            controlPoint1: CGPoint(x: size.width*0.95,y: size.height*0.5),
+//            controlPoint2: CGPoint(x: size.width*0.95,y: size.height*0.5))
+//        
+
+        
+
         
         return path.CGPath
 

@@ -103,8 +103,10 @@ class MyView: UIView {
                 controlPoint1: CGPoint(x: size.width*0.1,y: size.height*0.5),
                 controlPoint2: CGPoint(x: size.width*0.9,y: size.height*0.5))
           
-            path.moveToPoint(CGPoint(x: size.width*0.85,y: size.height*0.5))
-
+            path.addCurveToPoint(CGPoint(x: size.width*0.85,y: size.height*0.5),
+                controlPoint1: CGPoint(x: size.width*0.85,y: size.height*0.5),
+                controlPoint2: CGPoint(x: size.width*0.85,y: size.height*0.5))
+            
 //
 //            path.addCurveToPoint(CGPoint(x: size.width*0.85,y: size.height*0.55),
 //                controlPoint1: CGPoint(x: size.width*0.5,y: size.height*0.0),
