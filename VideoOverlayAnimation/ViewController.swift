@@ -28,6 +28,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate, UINaviga
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.view.layer.masksToBounds = true
         
     }
 

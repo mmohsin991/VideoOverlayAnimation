@@ -361,4 +361,160 @@ class Fairy {
         
     }
     
+    
+    
+    
+    class func glowFairy(fairySize: TFFairySize, fairyColor: TFFairyColors, center: CGPoint, fairyDustOn : Bool, useInAVFoundation : Bool, animationDuration: Double, parentLayer: CALayer){
+        
+        var size = CGSize(width: 100, height: 100)
+        var fairyLayer = CALayer()
+        let glowImage = UIImage(named: "glowWhite.png")
+
+        
+        switch(fairySize){
+        case .Small:
+            size = CGSize(width: 150, height: 150)
+        case .Medium:
+            size = CGSize(width: 200, height: 200)
+        case .Large:
+            size = CGSize(width: 250, height: 250)
+        }
+        
+        
+        fairyLayer.contents = glowImage?.CGImage
+        
+        // MARK: fairy path animation
+        let fairyPath = TFToothFairyPaths.getPathType2(parentLayer.frame.size)
+        fairyLayer.frame = CGRect(origin: parentLayer.frame.origin, size: size)
+
+        
+        // create a new CAKeyframeAnimation that animates the objects position
+        let fairyPathAnimation = CAKeyframeAnimation(keyPath: "position")
+        
+        // set the animations path to our bezier curve
+        fairyPathAnimation.path = fairyPath
+        
+        fairyPathAnimation.rotationMode = kCAAnimationRotateAuto
+        fairyPathAnimation.repeatCount = Float.infinity
+        fairyPathAnimation.beginTime = AVCoreAnimationBeginTimeAtZero
+        fairyPathAnimation.duration = animationDuration
+        
+        
+        let fadeAnimation = CAKeyframeAnimation(keyPath: "opacity")
+        fadeAnimation.values = [2.0,0.3]
+        fadeAnimation.autoreverses = true
+        fadeAnimation.beginTime = AVCoreAnimationBeginTimeAtZero
+        fadeAnimation.repeatCount = Float.infinity
+        
+        fadeAnimation.duration = 3.0
+        fadeAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        
+        
+        
+        let scaleAnimation = CAKeyframeAnimation(keyPath: "bounds")
+        scaleAnimation.values = [NSValue(CGRect: fairyLayer.bounds), NSValue(CGRect: CGRect(x: 0, y: 0, width: fairyLayer.bounds.width-100, height: fairyLayer.bounds.height-100))]
+        scaleAnimation.autoreverses = true
+        scaleAnimation.beginTime = AVCoreAnimationBeginTimeAtZero
+        scaleAnimation.repeatCount = Float.infinity
+        scaleAnimation.duration = 2.0
+        scaleAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        
+        
+        
+        let groupAnimation = CAAnimationGroup()
+        groupAnimation.animations = [fairyPathAnimation, fadeAnimation]
+        groupAnimation.repeatCount = Float.infinity
+        groupAnimation.beginTime = AVCoreAnimationBeginTimeAtZero
+        groupAnimation.duration = animationDuration
+        
+        
+        
+        // we add the animation to the squares 'layer' property
+        fairyLayer.addAnimation(groupAnimation, forKey: nil)
+        
+        parentLayer.addSublayer(fairyLayer)
+
+        
+        
+        
+        //MARK: fairy dust
+        if fairyDustOn{
+            
+            let fairyDustPath = TFToothFairyPaths.getPathType2(parentLayer.frame.size)
+            
+            // MARK: fairy dust path animation
+            
+            let fairyDust = TFFairyDust.fairyDust(fairyDustPath, frame: parentLayer.frame)
+            
+            //            fairyDust.transform = CATransform3DMakeScale(0.5, 0.5, 1)
+            //            fairyDust.scale = 2.0
+            
+            // create a new CAKeyframeAnimation that animates the objects position
+            let fairyDustAnimation = CAKeyframeAnimation(keyPath: "emitterPosition")
+            
+            // set the animations path to our bezier curve
+            fairyDustAnimation.path = fairyDustPath
+            
+            fairyDustAnimation.repeatCount = Float.infinity
+            fairyDustAnimation.beginTime = AVCoreAnimationBeginTimeAtZero
+            fairyDustAnimation.duration = animationDuration
+            // we add the animation to the squares 'layer' property
+            
+            
+            
+            
+            let fairyLifeAnimation = CABasicAnimation(keyPath: "lifetime")
+            
+            // set the animations path to our bezier curve
+            fairyLifeAnimation.toValue = 0.0
+            fairyLifeAnimation.beginTime = 10.0
+            fairyLifeAnimation.duration = 1
+            
+            
+            let fadeAnimation = CAKeyframeAnimation(keyPath: "opacity")
+            fadeAnimation.values = [1.0,-1.0]
+            fadeAnimation.beginTime = 11.0
+            fadeAnimation.duration = 1
+            
+            
+            
+            
+            let groupAnimation = CAAnimationGroup()
+            groupAnimation.animations = [fairyDustAnimation, fadeAnimation, fairyLifeAnimation]
+            groupAnimation.repeatCount = Float.infinity
+            groupAnimation.beginTime = AVCoreAnimationBeginTimeAtZero
+            groupAnimation.duration = 12
+            
+            
+            fairyDust.addAnimation(fairyDustAnimation, forKey: nil)
+            
+            
+            parentLayer.addSublayer(fairyDust)
+            
+        }
+        
+    }
+    
+    
+    
+    class func applyBorder(source: UIImage) -> UIImage{
+        
+        UIGraphicsBeginImageContext(source.size)
+        var rect = CGRect(origin: CGPointZero, size: source.size)
+        source.drawInRect(rect, blendMode: kCGBlendModeNormal, alpha: 1.0)
+        
+        
+        var context = UIGraphicsGetCurrentContext()
+        CGContextSetShadowWithColor(context,  CGSizeMake(0,0), 5.0, UIColor.redColor().CGColor)
+        
+        CGContextStrokeRect(context, rect)
+        
+        let image  =  UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext()
+        
+        return image
+        
+        
+    }
+    
 }

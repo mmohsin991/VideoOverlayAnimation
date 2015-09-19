@@ -19,17 +19,22 @@ var kTFGoldenColor = UIColor(red: 0.98, green: 1.0, blue: 0.90, alpha: 1.0)
 class FairyAnimationVC: UIViewController {
 
     @IBOutlet weak var imgView: UIImageView!
-    
-    
+        
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
+//        
+//        Fairy.fairy(TFFairySize.Small, fairyColor: TFFairyColors.Pink, center: CGPoint(x: 200, y: 300), fairyDustOn: true, useInAVFoundation: false, animationDuration: 14.0,  parentLayer: self.view.layer)
+
+        Fairy.glowFairy(TFFairySize.Medium, fairyColor: TFFairyColors.Pink, center: CGPoint(x: 200, y: 300), fairyDustOn: true, useInAVFoundation: false, animationDuration: 14.0,  parentLayer: self.view.layer)
+
+
         
-        Fairy.fairy(TFFairySize.Small, fairyColor: TFFairyColors.Pink, center: CGPoint(x: 200, y: 300), fairyDustOn: true, useInAVFoundation: false, animationDuration: 14.0,  parentLayer: self.view.layer)
         
+        self.imgView.image = Fairy.applyBorder(UIImage(named: "fairyLeg1Yellow.png")!)
         
     
         

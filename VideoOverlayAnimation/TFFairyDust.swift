@@ -18,6 +18,7 @@ class TFFairyDust {
     class func glowEmitter(emittingPath : CGPath, frame: CGRect) -> CAEmitterLayer{
         
         
+        
         var emit = CAEmitterLayer()
         emit.frame.size = frame.size
         emit.frame.origin = frame.origin
@@ -116,6 +117,14 @@ class TFFairyDust {
         return cell
     }
     
+    
+    
+    
+    class func glowing(){
+        var emit = CAEmitterLayer()
+        
+        
+    }
     
     
 }

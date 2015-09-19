@@ -27,6 +27,7 @@
 		423347171B8645AA00D3293D /* fairyWing.png in Resources */ = {isa = PBXBuildFile; fileRef = 423347151B8645AA00D3293D /* fairyWing.png */; };
 		425415FA1BAAE9F20082DB5A /* TFAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425415F91BAAE9F20082DB5A /* TFAnimation.swift */; };
 		426D311E1BA1C4E500085C77 /* TFFairyDust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426D311D1BA1C4E500085C77 /* TFFairyDust.swift */; };
+		426E49021BAC4156004A7094 /* glowWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 426E49011BAC4156004A7094 /* glowWhite.png */; };
 		42C0CD761B8C62EA00C1EFCC /* fairyLeg1Pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C0CD6E1B8C62EA00C1EFCC /* fairyLeg1Pink.png */; };
 		42C0CD771B8C62EA00C1EFCC /* fairyLeg1Yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C0CD6F1B8C62EA00C1EFCC /* fairyLeg1Yellow.png */; };
 		42C0CD781B8C62EA00C1EFCC /* fairyLeg2Pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C0CD701B8C62EA00C1EFCC /* fairyLeg2Pink.png */; };
@@ -76,6 +77,7 @@
 		423347151B8645AA00D3293D /* fairyWing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyWing.png; sourceTree = "<group>"; };
 		425415F91BAAE9F20082DB5A /* TFAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFAnimation.swift; sourceTree = "<group>"; };
 		426D311D1BA1C4E500085C77 /* TFFairyDust.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFFairyDust.swift; sourceTree = "<group>"; };
+		426E49011BAC4156004A7094 /* glowWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glowWhite.png; sourceTree = "<group>"; };
 		42C0CD6E1B8C62EA00C1EFCC /* fairyLeg1Pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyLeg1Pink.png; sourceTree = "<group>"; };
 		42C0CD6F1B8C62EA00C1EFCC /* fairyLeg1Yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyLeg1Yellow.png; sourceTree = "<group>"; };
 		42C0CD701B8C62EA00C1EFCC /* fairyLeg2Pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairyLeg2Pink.png; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				42C0CD711B8C62EA00C1EFCC /* fairyLeg2Yellow.png */,
 				42C0CD721B8C62EA00C1EFCC /* fairyUpperBodyPink.png */,
 				42C0CD731B8C62EA00C1EFCC /* fairyUpperBodyYellow.png */,
+				426E49011BAC4156004A7094 /* glowWhite.png */,
 				42C0CD741B8C62EA00C1EFCC /* fairyWingPink.png */,
 				42C0CD751B8C62EA00C1EFCC /* fairyWingYellow.png */,
 				42E904EB1B8B5D310062557C /* fairyLeg1.png */,
@@ -301,6 +304,7 @@
 				42C0CD7B1B8C62EA00C1EFCC /* fairyUpperBodyYellow.png in Resources */,
 				42C0CD761B8C62EA00C1EFCC /* fairyLeg1Pink.png in Resources */,
 				42E904F01B8B5D310062557C /* fairyUpperBody.png in Resources */,
+				426E49021BAC4156004A7094 /* glowWhite.png in Resources */,
 				42C0CD7C1B8C62EA00C1EFCC /* fairyWingPink.png in Resources */,
 				42E904EE1B8B5D310062557C /* fairyLeg1.png in Resources */,
 				42C0CD7A1B8C62EA00C1EFCC /* fairyUpperBodyPink.png in Resources */,

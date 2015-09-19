@@ -106,7 +106,7 @@ class VideoOverlay {
         
         //Now create an AVAssetExportSession object that will save your final video at specified path.
         
-        let assetExport = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetMediumQuality)
+        let assetExport = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality)
         
         assetExport.outputFileType = "com.apple.quicktime-movie"
         assetExport.outputURL = outputFileUrl
