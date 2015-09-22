@@ -29,12 +29,12 @@ class FairyAnimationVC: UIViewController {
 //        
 //        Fairy.fairy(TFFairySize.Small, fairyColor: TFFairyColors.Pink, center: CGPoint(x: 200, y: 300), fairyDustOn: true, useInAVFoundation: false, animationDuration: 14.0,  parentLayer: self.view.layer)
 
-        Fairy.glowFairy(TFFairySize.Medium, fairyColor: TFFairyColors.Pink, center: CGPoint(x: 200, y: 300), fairyDustOn: true, useInAVFoundation: false, animationDuration: 14.0,  parentLayer: self.view.layer)
+        Fairy.glowFairy(TFFairySize.Medium, fairyColor: TFFairyColors.Pink, center: CGPoint(x: 200, y: 300), fairyDustOn: true, useInAVFoundation: false, animationDuration: 44.0,  parentLayer: self.view.layer)
 
 
         
         
-        self.imgView.image = Fairy.applyBorder(UIImage(named: "fairyLeg1Yellow.png")!)
+      //  self.imgView.image = Fairy.applyBorder(UIImage(named: "fairyLeg1Yellow.png")!)
         
     
         
@@ -86,61 +86,54 @@ class MyView: UIView {
         
         override func drawRect(rect: CGRect) {
         
-       //     var size = CGSize(width: 720, height: 1280)
+            //     var size = CGSize(width: 720, height: 1280)
             var size = CGSize(width: 320, height: 550)
-
-
+            
+            
             let path = UIBezierPath()
             path.lineJoinStyle = kCGLineJoinRound
             
             
-            path.moveToPoint(CGPoint(x: -size.width*0.2,y: size.height*0.5))
             
-            path.addCurveToPoint(CGPoint(x: size.width*0.85,y: size.height*0.75),
-                controlPoint1: CGPoint(x: size.width*0.2,y: size.height*0.5),
-                controlPoint2: CGPoint(x: size.width*0.9,y: size.height*0.5))
+            path.moveToPoint(CGPoint(x: size.width*0.0,y: size.height*0.1))
+            path.addQuadCurveToPoint(
+                CGPoint(x: size.width*0.9,y: size.height*0.65),
+                controlPoint: CGPoint(x: size.width*0.9,y: size.height*0.0))
             
-            path.addCurveToPoint(CGPoint(x: size.width*0.15,y: size.height*0.75),
-                controlPoint1: CGPoint(x: size.width*0.8,y: size.height*0.9),
-                controlPoint2: CGPoint(x: size.width*0.2,y: size.height*0.9))
-
-            path.addCurveToPoint(CGPoint(x: size.width*0.85,y: size.height*0.5),
-                controlPoint1: CGPoint(x: size.width*0.1,y: size.height*0.5),
-                controlPoint2: CGPoint(x: size.width*0.9,y: size.height*0.5))
-          
-            path.addCurveToPoint(CGPoint(x: size.width*0.85,y: size.height*0.5),
-                controlPoint1: CGPoint(x: size.width*0.85,y: size.height*0.5),
-                controlPoint2: CGPoint(x: size.width*0.85,y: size.height*0.5))
+            path.addCurveToPoint(CGPoint(x: size.width*0.1,y: size.height*0.35),
+                controlPoint1: CGPoint(x: size.width*0.9,y: size.height*1.0),
+                controlPoint2: CGPoint(x: size.width*0.0,y: size.height*1.1))
             
-//
-//            path.addCurveToPoint(CGPoint(x: size.width*0.85,y: size.height*0.55),
-//                controlPoint1: CGPoint(x: size.width*0.5,y: size.height*0.0),
-//                controlPoint2: CGPoint(x: size.width*1.0,y: size.height*0.0))
-//
-//            path.addCurveToPoint(CGPoint(x: size.width*0.2,y: size.height*0.5),
-//                controlPoint1: CGPoint(x: size.width*0.5,y: size.height*1.5),
-//                controlPoint2: CGPoint(x: -size.width*0.1,y: size.height*0.5))
-
-
-//            path.addCurveToPoint(CGPoint(x: size.width*0.81,y: size.height*0.6),
-//                controlPoint1: CGPoint(x: size.width*0.2,y: -size.height*0.2),
-//                controlPoint2: CGPoint(x: size.width*0.8,y: size.height*0.1))
-            //
+            path.addCurveToPoint(CGPoint(x: size.width*0.81,y: size.height*0.6),
+                controlPoint1: CGPoint(x: size.width*0.2,y: -size.height*0.2),
+                controlPoint2: CGPoint(x: size.width*0.8,y: size.height*0.1))
             
+            path.addCurveToPoint(CGPoint(x: size.width*0.1,y: size.height*0.45),
+                controlPoint1: CGPoint(x: size.width*0.8,y: size.height*1.2),
+                controlPoint2: CGPoint(x: -size.width*0.2,y: size.height*0.8))
             
+            path.addCurveToPoint(CGPoint(x: size.width*0.85,y: size.height*0.55),
+                controlPoint1: CGPoint(x: size.width*0.5,y: size.height*0.0),
+                controlPoint2: CGPoint(x: size.width*1.0,y: size.height*0.0))
             
-
-////
-//            path.addLineToPoint(CGPoint(x: size.width*0.2,y: size.height*0.5))
-            
-            
-            // end point
-           // path.addLineToPoint(CGPoint(x: size.width*0.2,y: size.height*0.5))
-            
+            path.addCurveToPoint(CGPoint(x: size.width*0.5,y: size.height*0.5),
+                controlPoint1: CGPoint(x: size.width*0.5,y: size.height*1.5),
+                controlPoint2: CGPoint(x: -size.width*0.1,y: size.height*0.5))
             
             
             UIColor.greenColor().set()
             path.stroke()
         
-            }
+            
+            
+            let endPath = UIBezierPath()
+            endPath.lineJoinStyle = kCGLineJoinRound
+            
+            endPath.moveToPoint(CGPoint(x: size.width*0.5,y: size.height*0.5))
+            endPath.addLineToPoint(CGPoint(x: size.width*1.5,y: size.height*0.5))
+            
+            UIColor.redColor().set()
+            endPath.stroke()
+    }
 }
+

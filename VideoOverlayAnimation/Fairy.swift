@@ -236,7 +236,7 @@ class Fairy {
         //MARK: fairy dust
         if fairyDustOn{
             
-            let fairyDustPath = TFToothFairyPaths.getPathType2(parentLayer.frame.size)
+            let fairyDustPath = TFToothFairyPaths.getPathType2(animationDuration, size: parentLayer.frame.size)
 
             // MARK: fairy dust path animation
 
@@ -320,7 +320,7 @@ class Fairy {
         
         
         // MARK: fairy path animation
-        let fairyPath = TFToothFairyPaths.getPathType2(parentLayer.frame.size)
+        let fairyPath = TFToothFairyPaths.getPathType2(animationDuration, size: parentLayer.frame.size)
         
         // create a new CAKeyframeAnimation that animates the objects position
         let fairyPathAnimation = CAKeyframeAnimation(keyPath: "position")
@@ -384,8 +384,11 @@ class Fairy {
         fairyLayer.contents = glowImage?.CGImage
         
         // MARK: fairy path animation
-        let fairyPath = TFToothFairyPaths.getPathType2(parentLayer.frame.size)
+        let fairyPath = TFToothFairyPaths.getPathType2(animationDuration, size: parentLayer.frame.size)
+        let fairyEndPath = TFToothFairyPaths.endPath(parentLayer.frame.size)
+        
         fairyLayer.frame = CGRect(origin: parentLayer.frame.origin, size: size)
+        
 
         
         // create a new CAKeyframeAnimation that animates the objects position
@@ -395,19 +398,37 @@ class Fairy {
         fairyPathAnimation.path = fairyPath
         
         fairyPathAnimation.rotationMode = kCAAnimationRotateAuto
-        fairyPathAnimation.repeatCount = Float.infinity
+        fairyPathAnimation.fillMode = kCAFillModeBoth // keep to value after finishing
+        fairyPathAnimation.removedOnCompletion = false
         fairyPathAnimation.beginTime = AVCoreAnimationBeginTimeAtZero
-        fairyPathAnimation.duration = animationDuration
+        // animationDuration-6 because end animation and 2 sec hide and 4 sec for end animation
+        fairyPathAnimation.duration = animationDuration-8
         
         
-        let fadeAnimation = CAKeyframeAnimation(keyPath: "opacity")
-        fadeAnimation.values = [2.0,0.3]
-        fadeAnimation.autoreverses = true
-        fadeAnimation.beginTime = AVCoreAnimationBeginTimeAtZero
-        fadeAnimation.repeatCount = Float.infinity
         
-        fadeAnimation.duration = 3.0
-        fadeAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        
+        
+        let fairyEndPathAnimation = CAKeyframeAnimation(keyPath: "position")
+        
+        // set the animations path to our bezier curve
+        fairyEndPathAnimation.path = fairyEndPath
+        fairyEndPathAnimation.rotationMode = kCAAnimationRotateAuto
+        fairyEndPathAnimation.beginTime = animationDuration-4
+        fairyEndPathAnimation.duration = 4
+        
+        
+        
+        
+        
+        let shrinkAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
+        shrinkAnimation.values = [1.0,0.0,0.0,0.0,1.0]
+//        shrinkAnimation.keyTimes = [0.0,0.0,0.0,1.0]
+
+//        shrinkAnimation.autoreverses = true
+        shrinkAnimation.beginTime = animationDuration-8
+        shrinkAnimation.duration = 4.0
+        shrinkAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        
         
         
         
@@ -422,7 +443,7 @@ class Fairy {
         
         
         let groupAnimation = CAAnimationGroup()
-        groupAnimation.animations = [fairyPathAnimation, fadeAnimation]
+        groupAnimation.animations = [fairyPathAnimation, shrinkAnimation, fairyEndPathAnimation]
         groupAnimation.repeatCount = Float.infinity
         groupAnimation.beginTime = AVCoreAnimationBeginTimeAtZero
         groupAnimation.duration = animationDuration
@@ -440,7 +461,7 @@ class Fairy {
         //MARK: fairy dust
         if fairyDustOn{
             
-            let fairyDustPath = TFToothFairyPaths.getPathType2(parentLayer.frame.size)
+            let fairyDustPath = TFToothFairyPaths.getPathType2(animationDuration, size: parentLayer.frame.size)
             
             // MARK: fairy dust path animation
             
@@ -454,12 +475,24 @@ class Fairy {
             
             // set the animations path to our bezier curve
             fairyDustAnimation.path = fairyDustPath
-            
-            fairyDustAnimation.repeatCount = Float.infinity
+            fairyDustAnimation.fillMode = kCAFillModeBoth // keep to value after finishing
+            fairyDustAnimation.removedOnCompletion = false
             fairyDustAnimation.beginTime = AVCoreAnimationBeginTimeAtZero
-            fairyDustAnimation.duration = animationDuration
-            // we add the animation to the squares 'layer' property
+            // animationDuration-6 because end animation and 2 sec hide and 4 sec for end animation
+            fairyDustAnimation.duration = animationDuration-8
             
+            
+            
+            
+            let fairyDustEndPathAnimation = CAKeyframeAnimation(keyPath: "position")
+            
+            // set the animations path to our bezier curve
+            fairyDustEndPathAnimation.path = fairyEndPath
+            fairyDustEndPathAnimation.rotationMode = kCAAnimationRotateAuto
+            fairyDustEndPathAnimation.fillMode = kCAFillModeBoth // keep to value after finishing
+            fairyDustEndPathAnimation.removedOnCompletion = false
+            fairyDustEndPathAnimation.beginTime = animationDuration-4
+            fairyDustEndPathAnimation.duration = 4
             
             
             
@@ -480,13 +513,13 @@ class Fairy {
             
             
             let groupAnimation = CAAnimationGroup()
-            groupAnimation.animations = [fairyDustAnimation, fadeAnimation, fairyLifeAnimation]
+            groupAnimation.animations = [fairyDustAnimation, fairyDustEndPathAnimation]
             groupAnimation.repeatCount = Float.infinity
             groupAnimation.beginTime = AVCoreAnimationBeginTimeAtZero
-            groupAnimation.duration = 12
+            groupAnimation.duration = animationDuration
             
             
-            fairyDust.addAnimation(fairyDustAnimation, forKey: nil)
+            fairyDust.addAnimation(groupAnimation, forKey: nil)
             
             
             parentLayer.addSublayer(fairyDust)

@@ -392,8 +392,11 @@ class SetVideoOrientationAndAnimation {
         
         // animation
 
-        Fairy.fairy(TFFairySize.Small, fairyColor: TFFairyColors.Pink, center: CGPoint(x: 200, y: 300), fairyDustOn: true, useInAVFoundation: true, animationDuration: 22.0,  parentLayer: overlayLayer)
+//        Fairy.fairy(TFFairySize.Small, fairyColor: TFFairyColors.Pink, center: CGPoint(x: 200, y: 300), fairyDustOn: true, useInAVFoundation: true, animationDuration: 22.0,  parentLayer: overlayLayer)
         
+        Fairy.glowFairy(TFFairySize.Medium, fairyColor: TFFairyColors.Pink, center: CGPoint(x: 200, y: 300), fairyDustOn: true, useInAVFoundation: false, animationDuration: 14.0,  parentLayer: overlayLayer)
+        
+
         
         var videoLayer = CALayer()
         videoLayer.frame = CGRectMake(0, 0, size.width, size.height)
