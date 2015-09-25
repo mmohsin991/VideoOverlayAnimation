@@ -467,9 +467,6 @@ class Fairy {
             
             let fairyDust = TFFairyDust.fairyDust(fairyDustPath, frame: parentLayer.frame)
             
-            //            fairyDust.transform = CATransform3DMakeScale(0.5, 0.5, 1)
-            //            fairyDust.scale = 2.0
-            
             // create a new CAKeyframeAnimation that animates the objects position
             let fairyDustAnimation = CAKeyframeAnimation(keyPath: "emitterPosition")
             
@@ -511,7 +508,7 @@ class Fairy {
             
             
             
-            
+            // group animation
             let groupAnimation = CAAnimationGroup()
             groupAnimation.animations = [fairyDustAnimation, fairyDustEndPathAnimation]
             groupAnimation.repeatCount = Float.infinity
